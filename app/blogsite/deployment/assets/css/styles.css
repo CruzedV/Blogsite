@@ -1,0 +1,46 @@
+/*.admin-panel {
+    background: #343A40;
+    border: 1px solid #999;
+    border-radius: 5px;
+    position: fixed;
+    right: 100px;
+    bottom: 20px;
+    padding: 15px;
+    margin: 10px;
+}
+
+.admin-panel {
+    display: block;
+}
+
+.btn-dark{
+    border: 1px solid #999;
+    font-family: Century Gothic;
+}
+
+a.edit, a.delete {
+    display: none;
+}
+
+div.dropdown-menu {
+    background: #343A40;
+    border: 1px solid #999;
+    padding: 5px;
+}
+
+a.dropdown-item {
+    color: white;
+}
+
+.pagination {
+    padding-bottom: 20px;
+}
+
+li.active {
+    background: #343A40;
+}
+
+.horror {
+    font-family: micrac;
+}
+*/
