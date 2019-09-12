@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <a class="navbar-brand" href="{% url 'posts_list_url' %}">OuSite</a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'posts_list_url' %}">Posts</a>
                 </li>
                 <li class="nav-item">
@@ -60,7 +60,7 @@
                             {% for n in page_object.paginator.page_range %}
 
                                 {% if page_object.number == n %}
-                                    <li class="page-item active">
+                                    <li class="page-item active selected">
                                         <a class="page-link" href="?page={{ n }}">{{ n }}</a>
                                     </li>
                                 {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
@@ -71,7 +71,7 @@
 
                             {% endfor %}
 
-                             <li class="page-item {% if not next_url %} disabled {% endif %}">
+                             <li class="page-item {% if not next_url %} disabled {% endif %} ">
                                 <a class="page-link" href="{{ next_url }}" tabindex="-1">Next</a>
                             </li>
                         </ul>
