@@ -73,8 +73,13 @@ def posts_list(request):
     posts = Post.objects.all()
     paginator = Paginator(posts, 3)
 
-    page_number = request.GET.get('page', 1)
-    page = paginator.get_page(page_number)
+    try:
+        page_number = request.GET.get('page', 1)
+        page = paginator.get_page(page_number)
+    except ProgrammingError as e:
+        print(e)
+        page_number = 1
+        page = paginator.get_page(page_number)
 
     is_paginated = page.has_other_pages()
 
