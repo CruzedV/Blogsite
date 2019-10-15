@@ -1,4 +1,4 @@
-/*.admin-panel {
+.admin-panel {
     background: #343A40;
     border: 1px solid #999;
     border-radius: 5px;
@@ -15,7 +15,6 @@
 
 .btn-dark{
     border: 1px solid #999;
-    font-family: Century Gothic;
 }
 
 a.edit, a.delete {
@@ -40,7 +39,3 @@ li.active {
     background: #343A40;
 }
 
-.horror {
-    font-family: micrac;
-}
-*/
