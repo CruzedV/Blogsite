@@ -58,10 +58,9 @@ class PostDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
     redirect_url = 'posts_list_url'
     raise_exception = True
 
-
-
-def posts_list(request):
+def search_list(request):
     search_query = request.GET.get('search', '')
+
     if search_query:
         posts = Post.objects.filter(
                                 Q(title__icontains=search_query) |
@@ -70,16 +69,15 @@ def posts_list(request):
     else:
         posts = Post.objects.all()
 
+    return render(request, 'blog/search.html',
+                context={'search': posts})
+
+def posts_list(request):
     posts = Post.objects.all()
     paginator = Paginator(posts, 3)
 
-    try:
-        page_number = request.GET.get('page', 1)
-        page = paginator.get_page(page_number)
-    except ProgrammingError as e:
-        print(e)
-        page_number = 1
-        page = paginator.get_page(page_number)
+    page_number = request.GET.get('page', 1)
+    page = paginator.get_page(page_number)
 
     is_paginated = page.has_other_pages()
 
