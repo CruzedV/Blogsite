@@ -3,7 +3,7 @@
 	<html lang='en' class='custom-font'>
 	<head>
 		<meta charset='UTF-8'>
-		<meta name='viewport' content='width=device.width, initial=scale=1'>
+		<meta name='viewport', initial='scale=1'>
 		<meta http-equiv='X-UA=Compatible' content='ie=edge'>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -16,8 +16,8 @@
                  OuSite
             {% endblock %}
         </title>
-	</head>
-	<body>
+    </head>
+    <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,6 +34,42 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'test_page_url' %}" tabindex="-1" aria-disabled="true">Test page</a>
                 </li>
+                <li>
+                    <div class="btn-group lower-than-other">
+                        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Settings
+                        </button>
+                        <div class="dropdown-menu">
+
+                            <div id='unite-container'>
+                                <div class="toggle-btn" id="_1st-toggle-btn">
+                                    <input type="checkbox"> 
+                                    <span></span>
+                                </div>
+
+                                <div>
+                                    <a id='app-name'>Color Theme</a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <hr class='splitter'>                
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+                <!--
+                <li class='nav-item lower-than-other'>
+                    <div class="toggle-btn" id="_1st-toggle-btn">
+                        <input type="checkbox"> 
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <a class='nav-link line-class'>Color theme</a>
+                </li
+                -->
             </ul>   
             <form class="form-inline my-2 my-lg-0" action="{% url 'search_page_url' %}">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
@@ -54,25 +90,25 @@
                     <nav aria-label="...">
                         <ul class="pagination">
                             <li class="page-item {% if not prev_url %} disabled {% endif %}">
-                                <a class="page-link" href="{{ prev_url }}" tabindex="-1">Prev</a>
+                                <a class="page-link btn btn-dark" href="{{ prev_url }}" tabindex="-1">Prev</a>
                             </li>
 
                             {% for n in page_object.paginator.page_range %}
 
                                 {% if page_object.number == n %}
                                     <li class="page-item active selected">
-                                        <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+                                        <a class="btn btn-dark" href="?page={{ n }}">{{ n }}</a>
                                     </li>
                                 {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
                                     <li class="page-item">
-                                        <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+                                        <a class="btn btn-dark" href="?page={{ n }}">{{ n }}</a>
                                     </li>
                                 {% endif %}
 
                             {% endfor %}
 
                              <li class="page-item {% if not next_url %} disabled {% endif %} ">
-                                <a class="page-link" href="{{ next_url }}" tabindex="-1">Next</a>
+                                <a class="page-link btn btn-dark" href="{{ next_url }}" tabindex="-1">Next</a>
                             </li>
                         </ul>
                     </nav>
