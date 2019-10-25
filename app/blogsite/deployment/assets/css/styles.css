@@ -173,6 +173,7 @@ input[type="checkbox"] {
 /* switch animation */
 #_1st-toggle-btn input[type="checkbox"]:checked+span {
     background-color: #343A40;
+    box-shadow: 0px 0px 5px #17A2B8;
 }
 
 /*black mode icon*/
@@ -184,7 +185,7 @@ input[type="checkbox"] {
 /*black mode color*/
 #_1st-toggle-btn input[type="checkbox"]:checked+span:after {
     background-color: #fff;
-    transform: translate(80px, 0px)
+    transform: translate(80px, 0px);
 }
 
 h1 {
