@@ -100,7 +100,6 @@ def posts_list(request):
     return render(request, 'blog/index.html', 
                 context=context)
 
-
 def tags_list(request):
     tags = Tag.objects.all()
     return render(request, 'blog/tags_list.html', 

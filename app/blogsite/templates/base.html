@@ -42,11 +42,14 @@
                         <div class="dropdown-menu">
 
                             <div id='unite-container'>
-                                <div class="toggle-btn" id="_1st-toggle-btn">
-                                    <input type="checkbox"> 
-                                    <span></span>
-                                </div>
-
+                                <form href='url "test_page_url" '>
+                                    <div class="toggle-btn" id="_1st-toggle-btn">   
+                                        <form>
+                                            <input type="checkbox" onclick="dark_theme()"> 
+                                            <span></span>
+                                        </form>
+                                    </div>
+                                </form>
                                 <div>
                                     <a id='app-name'>Color Theme</a>
                                 </div>
@@ -59,17 +62,6 @@
                         </div>
                     </div>
                 </li>
-                <!--
-                <li class='nav-item lower-than-other'>
-                    <div class="toggle-btn" id="_1st-toggle-btn">
-                        <input type="checkbox"> 
-                        <span></span>
-                    </div>
-                </li>
-                <li>
-                    <a class='nav-link line-class'>Color theme</a>
-                </li
-                -->
             </ul>   
             <form class="form-inline my-2 my-lg-0" action="{% url 'search_page_url' %}">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">

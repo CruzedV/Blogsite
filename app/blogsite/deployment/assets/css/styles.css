@@ -1,5 +1,9 @@
 /* Styles for Ousite */
 
+.black-back {
+    background-color: #000
+}
+
 li.page-item.disabled > a.page-link{
     background-color: #343A40
 }
