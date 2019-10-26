@@ -62,15 +62,14 @@ def search_list(request):
     search_query = request.GET.get('search', '')
 
     if search_query:
-        posts = Post.objects.filter(
-                                Q(title__icontains=search_query) |
-                                Q(body__icontains=search_query)
-                                    )                             
-    else:
+        posts = Post.objects.filter(title__icontains=search_query)                           
+    elif not search_query:
         posts = Post.objects.all()
-
+    context = {
+        'search': posts
+    }
     return render(request, 'blog/search.html',
-                context={'search': posts})
+                context=context)
 
 def posts_list(request):
     posts = Post.objects.all()
