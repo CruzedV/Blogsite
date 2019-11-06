@@ -1,0 +1,19 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+
+    Delete User "{{user.title|title}}" - {{ block.super }}
+
+{% endblock %}
+
+{% block content %}
+
+    <form action='{{ user.get_delete_url }}' method='post'>
+        {% csrf_token %}
+
+        <h3>Are you sure you wnt to delete <b> "{{ user.title|title }}"</b> user?</h3>
+        <a href='{{ user.get_absolute_url }}'> No!</a>
+        <button type='submit' name='button' class='btn btn-danger'>Yes</button>
+    </form>
+    
+{% endblock %}

@@ -6,13 +6,14 @@ from django.urls import reverse
 
 from blog.models import Tag
 from blog.models import Post
+from blog.models import User
 from blog.utils import ObjectDetailMixin
 from blog.utils import ObjectCreateMixin
 from blog.utils import ObjectUpdateMixin
 from blog.utils import ObjectDeleteMixin
 from blog.forms import TagForm
 from blog.forms import PostForm
-from django.db.models import Q
+from blog.forms import UserForm
 from django.views.generic import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -58,8 +59,26 @@ class PostDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
     redirect_url = 'posts_list_url'
     raise_exception = True
 
-#class UserPage(View):
-         
+class UserCreate(LoginRequiredMixin, ObjectCreateMixin ,View):
+    form_model = UserForm
+    tempalte = 'blog/user_create.html'
+    raise_exception = True
+
+class UserDetail(ObjectDetailMixin, View):
+    model = User
+    template = 'blog/user_detail.html'
+
+class UserUpdate(LoginRequiredMixin, ObjectDetailMixin, View):
+    model = User
+    form_model = UserForm
+    template = 'blog/user_update.html'
+    raise_exception = True
+
+class UserDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
+    model = User
+    tempalte = 'blog/user_delete'
+    redirect_url = 'posts_list_url'
+    raise_exception = True
 
 def search_list(request):
     search_query = request.GET.get('search', '')
@@ -94,6 +113,11 @@ def tags_list(request):
     tags = Tag.objects.all()
     return render(request, 'blog/tags_list.html', 
                 context={'tags': tags})
+
+def users_list(request):
+    users = User.objects.all()
+    return render(request, 'blog/users_list.html',
+                context={'users': users})
 
 
 def test_page(request):

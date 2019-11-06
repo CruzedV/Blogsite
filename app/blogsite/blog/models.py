@@ -56,4 +56,25 @@ class Tag(models.Model):
         ordering = ['title']
 
 
+class User(models.Model):
+    nickname = models.CharField(max_length=20)
+    slug = models.SlugField(max_length=50, unique = True)
+
+    def get_absolute_url(self):
+        return reverse('user_detail_url', kwargs={'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse('user_update_url', kwargs={'slug':self.slug})
+
+    def get_delete_url(self):
+        return reverse('user_delete_url', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = gen_slug(self.nickname)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.nickname
+
 

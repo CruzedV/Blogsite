@@ -177,7 +177,7 @@ input[type="checkbox"] {
 /* switch animation */
 #_1st-toggle-btn input[type="checkbox"]:checked+span {
     background-color: #343A40;
-    box-shadow: 0px 0px 5px #17A2B8;
+    box-shadow: 0px 0px 5px #19B9D2;
 }
 
 /*black mode icon*/

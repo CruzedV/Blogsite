@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 
 from blog.models import Tag
 from blog.models import Post
+from blog.models import User
 
 
 class TagForm(forms.ModelForm):
@@ -49,4 +50,24 @@ class PostForm(forms.ModelForm):
 
         if new_slug == 'create':
             raise ValidationError('Slug may not be "create"')
+        return new_slug
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['nickname', 'slug']
+        widgets = {
+            'nickname': forms.TextInput(attrs={'class': 'form-control'}),
+            'slug': forms.Textarea(attrs={'class': 'form-control'})
+        }
+    def clean_slug(self):
+        new_slug = self.cleaned_data['slug']
+
+        if new_slug == 'create':
+            raise ValidationError('Slug may not be "create"')
+        if User.objects.filter(slug__iexact=new_slug).count():
+            raise ValidationError(
+                    'Slug must be unique.'
+                    'We have "{}" slug already'.format(new_slug)
+                    )
         return new_slug

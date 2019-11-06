@@ -16,6 +16,10 @@ urlpatterns = [
     path('tag/<str:slug>/', TagDetail.as_view(), name='tag_detail_url'),
     path('tag/<str:slug>/update/', TagUpdate.as_view(), name='tag_update_url'),
     path('tag/<str:slug>/delete/', TagDelete.as_view(), name='tag_delete_url'),
+    path('user/create/', UserCreate.as_view(), name='user_create_url'),
+    path('user/<str:slug>', UserDetail.as_view(), name='user_detail_url'),
+    path('user/<str:slug>/update/', UserUpdate.as_view(), name='user_update_url'),
+    path('user/<str:slug>/delete/', UserDelete.as_view(), name='user_delete_url'),
+    path('users/', users_list, name='users_list_url'),
     path('test/', test_page, name='test_page_url')
-    #path('user/', UserPage.as_view(), name='user_page_url')
 ]
