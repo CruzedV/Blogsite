@@ -8,9 +8,9 @@
 
 {% block content %}
 
-    <h1 class='mb-5'>Users:</h1>
+    <h1>Users:</h1>
     {% for user in users %}
-        <h3><a class='color-turqiouse' href='{{ user.get_absolute_url }}'>{{ user.nickname }}</a></h3>
+        {% include 'blog/includes/user_card_template.html' %}
     {% endfor %}
 
 {% endblock %}

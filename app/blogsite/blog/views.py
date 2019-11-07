@@ -68,7 +68,7 @@ class UserDetail(ObjectDetailMixin, View):
     model = User
     template = 'blog/user_detail.html'
 
-class UserUpdate(LoginRequiredMixin, ObjectDetailMixin, View):
+class UserUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
     model = User
     form_model = UserForm
     template = 'blog/user_update.html'
