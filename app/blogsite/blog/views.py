@@ -59,9 +59,9 @@ class PostDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
     redirect_url = 'posts_list_url'
     raise_exception = True
 
-class UserCreate(LoginRequiredMixin, ObjectCreateMixin ,View):
+class UserCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     form_model = UserForm
-    tempalte = 'blog/user_create.html'
+    template = 'blog/user_create.html'
     raise_exception = True
 
 class UserDetail(ObjectDetailMixin, View):
@@ -76,7 +76,7 @@ class UserUpdate(LoginRequiredMixin, ObjectDetailMixin, View):
 
 class UserDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
     model = User
-    tempalte = 'blog/user_delete'
+    template = 'blog/user_delete.html'
     redirect_url = 'posts_list_url'
     raise_exception = True
 

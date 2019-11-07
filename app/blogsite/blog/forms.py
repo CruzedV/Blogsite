@@ -58,13 +58,14 @@ class UserForm(forms.ModelForm):
         fields = ['nickname', 'slug']
         widgets = {
             'nickname': forms.TextInput(attrs={'class': 'form-control'}),
-            'slug': forms.Textarea(attrs={'class': 'form-control'})
+            'slug': forms.TextInput(attrs={'class': 'form-control'})
         }
     def clean_slug(self):
         new_slug = self.cleaned_data['slug']
 
         if new_slug == 'create':
             raise ValidationError('Slug may not be "create"')
+            
         if User.objects.filter(slug__iexact=new_slug).count():
             raise ValidationError(
                     'Slug must be unique.'

@@ -74,7 +74,4 @@ class User(models.Model):
             self.slug = gen_slug(self.nickname)
         super().save(*args, **kwargs)
 
-    def __str__(self):
-        return self.nickname
-
 
