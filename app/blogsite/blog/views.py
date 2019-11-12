@@ -21,10 +21,7 @@ from blog.forms import UserForm
 
 from django.views.generic import View
 
-from django.contrib.auth import authenticate
-from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.forms import UserCreationForm
 
 class TagCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     form_model = TagForm
@@ -127,11 +124,7 @@ def users_list(request):
     users = User.objects.all()
     return render(request, 'blog/users_list.html',
                 context={'users': users})
-
-
-def accounts_page(request):
-    return render(request, 'blog/accounts_page.html')
-
+`
 def paginator_for_posts(request, posts):
     paginator = Paginator(posts, 3)
     page_number = request.GET.get('page', 1)
@@ -149,23 +142,3 @@ def paginator_for_posts(request, posts):
         next_url = ''
     pag_list = (next_url, prev_url, is_paginated, page)
     return pag_list
-
-def register(request):
-    if request.method =='POST':
-        form = UserCreationForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(username=username, 
-                                password='password'
-                                )
-            login(request, user)
-
-            return redirect('/')
-    else:
-        form = UserCreationForm()
-    form = UserCreationForm()
-    return render(request, 'registration/register.html',
-                context={'form': form})

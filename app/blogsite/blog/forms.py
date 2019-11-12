@@ -26,13 +26,6 @@ class TagForm(forms.ModelForm):
                     'We have "{}" slug already'.format(new_slug)
                     )
         return new_slug
-    #Если класс Form
-    #def save(self):    
-    #    new_tag = Tag.objects.create(
-    #        title=self.cleaned_data['title'],
-    #        slug=self.cleaned_data['slug']
-    #    )
-    #    return new_tag
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -72,3 +65,11 @@ class UserForm(forms.ModelForm):
                     'We have "{}" slug already'.format(new_slug)
                     )
         return new_slug
+
+    #Если класс Form
+    #def save(self):    
+    #    new_tag = Tag.objects.create(
+    #        title=self.cleaned_data['title'],
+    #        slug=self.cleaned_data['slug']
+    #    )
+    #    return new_tag
