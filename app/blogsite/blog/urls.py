@@ -21,6 +21,6 @@ urlpatterns = [
     path('user/<str:slug>/delete', UserDelete.as_view(), name='user_delete_url'),
     path('users/', users_list, name='users_list_url'),
 
-    path('test/', test_page, name='test_page_url'),
-    path('search', search_list, name='search_page_url')
+    path('accounts/', accounts_page, name='accounts_page_url'),
+    path('search/', search_list, name='search_page_url'),
 ]

@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+from blog.views import register
 
 from .views import redirect_blog
 urlpatterns = [
 	path('', redirect_blog),
-    path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls'))
+    path('accounts/admin/', admin.site.urls),
+    path('blog/', include('blog.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register/', register, name='register_url')
 
 ]

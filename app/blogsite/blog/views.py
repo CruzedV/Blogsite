@@ -1,21 +1,30 @@
 from django.core.paginator import Paginator
+
 from django.shortcuts import redirect
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+
 from django.urls import reverse
 
 from blog.models import Tag
 from blog.models import Post
 from blog.models import User
+
 from blog.utils import ObjectDetailMixin
 from blog.utils import ObjectCreateMixin
 from blog.utils import ObjectUpdateMixin
 from blog.utils import ObjectDeleteMixin
+
 from blog.forms import TagForm
 from blog.forms import PostForm
 from blog.forms import UserForm
+
 from django.views.generic import View
+
+from django.contrib.auth import authenticate
+from django.contrib.auth import login
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserCreationForm
 
 class TagCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     form_model = TagForm
@@ -120,10 +129,8 @@ def users_list(request):
                 context={'users': users})
 
 
-def test_page(request):
-    int_list = [i for i in range(12)]
-    return render(request, 'blog/test_page.html',
-                context={'int_list': int_list})
+def accounts_page(request):
+    return render(request, 'blog/accounts_page.html')
 
 def paginator_for_posts(request, posts):
     paginator = Paginator(posts, 3)
@@ -142,3 +149,23 @@ def paginator_for_posts(request, posts):
         next_url = ''
     pag_list = (next_url, prev_url, is_paginated, page)
     return pag_list
+
+def register(request):
+    if request.method =='POST':
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, 
+                                password='password'
+                                )
+            login(request, user)
+
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    form = UserCreationForm()
+    return render(request, 'registration/register.html',
+                context={'form': form})

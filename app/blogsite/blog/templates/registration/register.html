@@ -1,0 +1,27 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+
+    Register - {{ block.super}}
+
+{% endblock %}
+
+{% block content %}
+
+    <form method='post', action='{% url "register_url" %}'>
+        
+        {% csrf_token %}
+
+        {% if form.errors %}
+
+            <p>Wrong</p>
+
+        {% endif %}
+
+        {{ form }}
+
+        <input type='submit' value='Register'>
+
+    </form>
+    
+{% endblock %}

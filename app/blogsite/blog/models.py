@@ -2,7 +2,7 @@ from time import time
 from django.db import models
 from django.shortcuts import reverse
 from django.utils.text import slugify
-
+from django.contrib.auth.models import User
 
 def gen_slug(string):
     new_slug = slugify(string, allow_unicode=True)
@@ -58,7 +58,7 @@ class Tag(models.Model):
 
 class User(models.Model):
     nickname = models.CharField(max_length=20)
-    slug = models.SlugField(max_length=50, unique = True)
+    slug = models.SlugField(max_length=20, unique=True)
 
     def get_absolute_url(self):
         return reverse('user_detail_url', kwargs={'slug': self.slug})
@@ -73,5 +73,9 @@ class User(models.Model):
         if not self.id:
             self.slug = gen_slug(self.nickname)
         super().save(*args, **kwargs)
+
+class BlogUser(User):
+    first_name = models.CharField(max_length=20)
+    
 
 
