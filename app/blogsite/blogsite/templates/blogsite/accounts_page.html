@@ -7,10 +7,10 @@
 {% endblock %}
 
 {% block content %}
-
-	<a class='btn btn-dark' href='#'>Admin</a>
-	<a class='btn btn-dark' href='#'>Register</a>
-	<a class='btn btn-dark' href='#'>Login in</a>
+    
+    <a class='btn btn-dark' href='/account/admin/'>Admin</a>
+    <a class='btn btn-dark' href='{% url "register_url" %}'>Register</a>
+    <a class='btn btn-dark' href='/account/login'>Login in</a>
 
 {% endblock %}
 

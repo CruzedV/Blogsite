@@ -124,7 +124,7 @@ def users_list(request):
     users = User.objects.all()
     return render(request, 'blog/users_list.html',
                 context={'users': users})
-`
+
 def paginator_for_posts(request, posts):
     paginator = Paginator(posts, 3)
     page_number = request.GET.get('page', 1)
