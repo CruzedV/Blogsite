@@ -92,8 +92,10 @@ def search_list(request):
         posts = Post.objects.filter(title__icontains=search_query)                           
     elif not search_query:
         posts = Post.objects.all()
+    search_name = search_query
     context = {
-            'search': posts
+            'search': posts,
+            'search_name': search_name
             }
     return render(request, 'blog/search.html',
                 context=context)

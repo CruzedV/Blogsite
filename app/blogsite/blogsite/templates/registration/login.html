@@ -23,10 +23,14 @@
     <form method='post' actiob='{% url "login" %}'>
         {% csrf_token %}
 
-        <p>Username{{ form.username }}</p>
-        <p>Password{{ form.password }}</p>
+        <p>Username</p>
+        <p>{{ form.username }}</p>
+        <p>Password</p>
+        <p>{{ form.password }}</p>
 
-        <p><input type='submit' value='login'></p>
+        <p>
+            <button type='submit' name='button' class='btn btn-dark'>Login</button>
+        </p>
         <input type='hidden' name='next' value ='{{ next }}'>
     </from>
 {% endblock %}
