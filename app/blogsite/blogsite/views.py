@@ -11,7 +11,9 @@ def redirect_homepage(request):
     return redirect('homepage_url', permanent=True)
 
 def homepage(request):
-	return render(request, 'blogsite/homepage.html')
+    is_homepage = True
+    return render(request, 'blogsite/homepage.html',
+                context={'is_homepage': is_homepage})
 
 def register(request):
     if request.method =='POST':

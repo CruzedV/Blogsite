@@ -6,8 +6,32 @@
 
 {% endblock %}
 
-{%  block content %}
+{% block homepage %}
 
-    <a>It is start page!</a>
+ <h1>Welcome to OuSite</h1>
+
+{% endblock %}
+
+{% block content %}
+
+<div class='{% if is_homepage %} lower-than-head {% endif %}'>
+	<h2>Hello</h2>
+	<div>
+		<p>
+		This project was created in September 11 2019.<a href='https://github.com/CruzedV/Blogsite'> Here you can find the GitHub repository</a>
+		</p>
+		<p>
+			This is my solo project created using Django, PostgreSQL. Also you can join my team. Contact me here:
+			<p>
+				<img><a href='https://vk.com/cruzedv'>VK</a>
+			</p>
+			<p>
+				<img><a href='https://github.com/CruzedV'>GitHub</a>
+			</p>
+			<p>
+				<img><a href='https://accounts.google.com/'>Gmail</a></p>
+			</p>
+	</div>
+</div>
 
 {% endblock %}

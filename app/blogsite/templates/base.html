@@ -64,7 +64,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <a class='nav-link' href='#'>
+                <a class='nav-link' href='{{ user.personal_url }}'>
                     {{ user.username }}
                 </a>
             </ul>
@@ -74,13 +74,17 @@
             </form>
         </div>
     </nav>
+    <div class='middle-placed'>
+
+        {% block homepage %}{% endblock %}
+
+    </div>
     <div class='container mt-5'>
         <div class='row'>
             <div class='col-6'>
 
                 {% block content %}
 
-                    There no any content for you
 
                 {% endblock %}
                 {% if is_paginated %}
