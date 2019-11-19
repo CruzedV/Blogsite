@@ -1,27 +1,69 @@
 /* Styles for Ousite */
 
-.image-url {
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+    margin: 5px 0px;
+    border-bottom: 1px solid #17A2B8;
+}
+
+body {
+    margin: 0px;
+    background-color: #f8f8f8;
+}
+
+body.background-c {
+    background: #8B8E93;
+}
+
+a {
+    color: #17A2B8;
+    transition: 0.2s ease-in-out;
+}
+
+a:hover{
+    color: #343A40;   
+}
+
+
+a.edit, a.delete {
+    display: none;
+}
+
+a.image-url {
     font-size: 20;
     padding-left: 10px;
 }
 
-.lower-than-head {
-    padding-top: 120px;
+a.navbar-brand {
+    font-size: 25px;
+    padding-bottom: 10px;
+    margin: 0px 20px 0px 10px;
 }
 
-.middle-placed {
-    width: 100%;
-    height: 100%;
-    padding-top: 70px;
-    position: absolute;
+a.page-link:hover {
+    color: #17A2B8;
+    transition: 0.2s ease-in-out;
+    background-color: #23272B;
 }
 
-.black-back {
-    background-color: #000
+li.nav-item {
+    font-size: 18px;
+    padding-bottom: 4px;
+}
+
+li.selected > a.btn {
+    color: #17A2B8;
 }
 
 li.page-item.disabled > a.page-link{
     background-color: #343A40
+}
+
+div.dropdown-menu {
+    background: #343A40;
+    border: 1px solid #999;
+    padding: 5px;
 }
 
 hr.splitter {
@@ -30,36 +72,10 @@ hr.splitter {
     box-shadow: 0px 0px 5px #17A2B8;
 }
 
-a {
-    color: #17A2B8;
-    transition: 0.2s ease-in-out;
-}
-
-.unite-container {}
-
 #app-name {
     color: #fff;
     text-align: center;
     margin-left: 28px;
-}
-
-a:hover{
-    color: #343A40;   
-}
-
-.page-link {
-    color: white;
-    background-color: #343A40;
-}
-
-li.selected > a.btn {
-    color: #17A2B8;
-}
-
-a.page-link:hover {
-    color: #17A2B8;
-    transition: 0.2s ease-in-out;
-    background-color: #23272B;
 }
 
 .admin-panel {
@@ -71,15 +87,15 @@ a.page-link:hover {
     bottom: 20px;
     padding: 15px;
     margin: 10px;
+    display: block;
 }
 
-.admin-panel {
-    display: block;
+.black-back {
+    background-color: #000
 }
 
 .btn-dark {
     border: 1px solid #999;
-
 }
 
 .btn-dark:hover{
@@ -87,49 +103,38 @@ a.page-link:hover {
     transition: 0.2s ease-in-out;
 }
 
-a.edit, a.delete {
-    display: none;
+.lower-than-head {
+    padding-top: 120px;
 }
 
-div.dropdown-menu {
-    background: #343A40;
-    border: 1px solid #999;
-    padding: 5px;
-}
-
-.pagination {
-    padding-bottom: 20px;
-}
-
-body.background-c {
-    background: #8B8E93;
-}
-
-li.nav-item {
-    font-size: 18px;
-    padding-bottom: 4px;
-}
-
-a.navbar-brand {
-    font-size: 25px;
-    padding-bottom: 10px;
-    margin: 0px 20px 0px 10px;
-}
 
 .lower-than-other {
     padding-top: 5px;
 }
 
+.middle-placed {
+    width: 100%;
+    height: 100%;
+    padding-top: 70px;
+    position: absolute;
+}
+
+.page-link {
+    color: white;
+    background-color: #343A40;
+}
+
+
+.pagination {
+    padding-bottom: 20px;
+}
+
+.unite-container {}
 
 /*
 Custom css for bttns
 */
 
-
-body {
-    margin: 0px;
-    background-color: #f8f8f8;
-}
 /* bttn frame width and height */
 .toggle-btn {
     position: relative;
@@ -207,14 +212,6 @@ input[type="checkbox"] {
     background-color: #fff;
     transform: translate(80px, 0px);
 }
-
-h1 {
-    text-align: center;
-    padding-bottom: 20px;
-    margin: 5px 0px;
-    border-bottom: 1px solid #17A2B8;
-}
-
 
 /*
 
