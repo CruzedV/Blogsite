@@ -1,7 +1,12 @@
 /* Styles for Ousite */
 
+.image-url {
+    font-size: 20;
+    padding-left: 10px;
+}
+
 .lower-than-head {
-    padding-top: 70px;
+    padding-top: 120px;
 }
 
 .middle-placed {
