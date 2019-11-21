@@ -6,12 +6,25 @@
 
 {% endblock %}
 
-{% block content %}
+{% block homepage %}
+
 	<h1>Account management</h1>
-    
-    <a class='btn btn-dark' href='/account/admin/'>Admin</a>
-    <a class='btn btn-dark' href='{% url "register_url" %}'>Register</a>
-    <a class='btn btn-dark' href='/account/login'>Login in</a>
+
+{% endblock%}
+
+{% block content %}
+
+    <div class='lower-than-head'>
+    	<p>
+    		<a class='btn btn-dark' href='/account/admin/'>Admin</a>
+    	</p>
+    	<p>
+    		<a class='btn btn-dark' href='{% url "register_url" %}'>Register</a>
+    	</p>
+    	<p>
+    		<a class='btn btn-dark' href='/account/login'>Login in</a>
+    	</p>
+	</div>
 
 {% endblock %}
 

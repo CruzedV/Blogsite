@@ -102,7 +102,7 @@ def search_list(request):
 
 def posts_list(request):
     posts = Post.objects.all()
-    paginated_list = paginator_for_posts(request, posts)
+    paginated_list = paginator_for_obj(request, posts)
     next_url = paginated_list[0]
     prev_url = paginated_list[1]
     is_paginated = paginated_list[2]
@@ -127,10 +127,10 @@ def users_list(request):
     return render(request, 'blog/users_list.html',
                 context={'users': users})
 
-def paginator_for_posts(request, posts):
-    paginator = Paginator(posts, 3)
-    page_number = request.GET.get('page', 1)
-    page = paginator.get_page(page_number)
+def paginator_for_obj(request, obj):
+    paginator = Paginator(obj, 3)
+    obj_number = request.GET.get('page', 1)
+    page = paginator.get_page(obj_number)
     is_paginated = page.has_other_pages()
 
     if page.has_previous():

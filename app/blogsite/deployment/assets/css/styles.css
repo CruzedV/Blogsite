@@ -1,12 +1,5 @@
 /* Styles for Ousite */
 
-h1 {
-    text-align: center;
-    padding-bottom: 20px;
-    margin: 5px 0px;
-    border-bottom: 1px solid #17A2B8;
-}
-
 body {
     margin: 0px;
     background-color: #f8f8f8;
@@ -24,7 +17,6 @@ a {
 a:hover{
     color: #343A40;   
 }
-
 
 a.edit, a.delete {
     display: none;
@@ -45,6 +37,13 @@ a.page-link:hover {
     color: #17A2B8;
     transition: 0.2s ease-in-out;
     background-color: #23272B;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+    margin: 5px 0px;
+    border-bottom: 1px solid #17A2B8;
 }
 
 li.nav-item {
@@ -123,7 +122,6 @@ hr.splitter {
     color: white;
     background-color: #343A40;
 }
-
 
 .pagination {
     padding-bottom: 20px;
