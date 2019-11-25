@@ -44,7 +44,7 @@ h1 {
     padding-bottom: 20px;
     margin: 5px 0px;
     border-bottom: 1px solid #17A2B8;
-}
+} 
 
 li.nav-item {
     font-size: 18px;
@@ -102,6 +102,10 @@ hr.splitter {
     transition: 0.2s ease-in-out;
 }
 
+.col-5 {
+    margin: 0px;
+}
+
 .lower-than-head {
     padding-top: 120px;
 }
@@ -114,7 +118,7 @@ hr.splitter {
 .middle-placed {
     width: 100%;
     height: 100%;
-    padding-top: 70px;
+    padding-top: 20px;
     position: absolute;
 }
 

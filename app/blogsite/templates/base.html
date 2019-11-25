@@ -1,5 +1,8 @@
 {% load static %}
 <DOCTYPE html>
+
+<!-- Parameter initialization -->
+
 	<html lang='en' class='custom-font'>
 	<head>
 		<meta charset='UTF-8'>
@@ -15,6 +18,9 @@
         </title>
     </head>
     <body>
+
+<!-- Navbar placed here -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,7 +51,7 @@
                                 <form href='url "test_page_url" '>
                                     <div class="toggle-btn" id="_1st-toggle-btn">   
                                         <form>
-                                            <input type="checkbox" onclick="dark_theme()"> 
+                                            <input type="checkbox"> 
                                             <span></span>
                                         </form>
                                     </div>
@@ -64,7 +70,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
-                <a class='nav-link' href='{{ user.personal_url }}'>
+                <a class='nav-link' href='{{ user.personal_url }}' title='You are logged in as {{ user.username }}'>
                     {{ user.username }}
                 </a>
             </ul>
@@ -74,19 +80,23 @@
             </form>
         </div>
     </nav>
-    <div class='middle-placed'>
 
-        {% block homepage %}{% endblock %}
+<!-- Content page -->
 
-    </div>
+        {% block homepage %}
+
+        {% endblock %}
+
     <div class='container mt-5'>
-        <div class='row'>
+        <div>
             <div class='col-6'>
 
                 {% block content %}
 
-
                 {% endblock %}
+
+<!-- Paginator placed here -->
+
                 {% if is_paginated %}
                     <nav aria-label="...">
                         <ul class="pagination">
@@ -116,7 +126,21 @@
                 {% endif %}
             </div>
         </div>
+
+<!-- News placed here -->
+
+        <div>
+            <div class='col-4'>
+
+                {% block news %}
+
+                {% endblock %}
+
+            </div>
+        </div>
     </div>
+
+<!-- Administrator panel -->
 
     {% if request.user.is_authenticated and request.user.is_staff%}
 

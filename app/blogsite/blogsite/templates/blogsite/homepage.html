@@ -1,47 +1,89 @@
 {% extends 'blog/base_blog.html' %}
 {% load static %}
 
+
+<!-- Title of page -->
+
+
 {% block title %}
 
     Welcome to {{ block.super }}
 
 {% endblock %}
 
+
+<!-- Homepage block -->
+
+
 {% block homepage %}
 
- <h1>Welcome to OuSite</h1>
+<div class='middle-placed'>
+
+    <h1>Welcome to OuSite</h1>
+
+</div>
 
 {% endblock %}
 
+
+<!-- Content block -->
+
+
 {% block content %}
 
-<div class='{% if is_homepage %} lower-than-head {% endif %}'>
+<div class='lower-than-head'>
 
-	<h2>Hello</h2>
+    <h2>Hello</h2>
 
-	<div>
+    <div>
 
-		<p>
-		This project was created in September 11 2019.<a href='https://github.com/CruzedV/Blogsite'> Here you can find the GitHub repository</a>
-		</p>
+        <p>
+            This project was created in September 11 2019.<a href='https://github.com/CruzedV/Blogsite'> Here you can find the GitHub repository</a>
+        </p>
 
-		<p>
-			This is my solo project created using Django, PostgreSQL. Also you can join my team. Contact me here:
-		</p>
+        <p>
+            This is my solo project created using Django, PostgreSQL. Also you can join my team. Contact me here:
+        </p>
 
-		<p>
-			<img src='{% static "images/vk_icon.png" %}'><a class='image-url' href='https://vk.com/cruzedv'>VK</a>
-		</p>
+        <p>
+            <img src='{% static "images/vk_icon.png" %}'><a class='image-url' href='https://vk.com/cruzedv'>VK</a>
+        </p>
 
-		<p>
-			<img src='{% static "images/github_icon.png" %}'><a class='image-url' href='https://github.com/CruzedV'>GitHub</a>
-		</p>
+        <p>
+            <img src='{% static "images/github_icon.png" %}'><a class='image-url' href='https://github.com/CruzedV'>GitHub</a>
+        </p>
 
-		<p>
-			<img src='{% static "images/gmail_icon.png" %}'><a class='image-url' href='https://accounts.google.com/'>Gmail</a>
-		</p>
+        <p>
+            <img src='{% static "images/gmail_icon.png" %}'><a class='image-url' href='https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSDZdGLFDDNQQXrPrqKQdbXJjPqKfQFQnlXhqWNvhJTLdJjfvZDkWqZrTQdlXKfWcdvLJtTk'>Gmail - cruzedvs@gmail.com</a>
+        </p>
 
-	</div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+<!-- News block -->
+
+
+{% block news %}
+
+<div class='lower-than-head'>
+
+    <div class="card text-center">
+            <div class="card-header">
+            Featured
+            </div>
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-dark">Go somewhere</a>
+        </div>
+        <div class="card-footer text-muted">
+            2 days ago
+        </div>
+    </div>
 
 </div>
 
