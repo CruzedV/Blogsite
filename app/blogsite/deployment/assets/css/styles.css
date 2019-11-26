@@ -59,6 +59,7 @@ li.page-item.disabled > a.page-link{
     background-color: #343A40
 }
 
+
 div.dropdown-menu {
     background: #343A40;
     border: 1px solid #999;
@@ -102,8 +103,10 @@ hr.splitter {
     transition: 0.2s ease-in-out;
 }
 
-.col-5 {
-    margin: 0px;
+.left-column {
+    width: 500px;
+    margin-right: 100px; 
+    float: left;
 }
 
 .lower-than-head {
@@ -129,6 +132,11 @@ hr.splitter {
 
 .pagination {
     padding-bottom: 20px;
+}
+
+.right-column {
+    float: left;
+
 }
 
 .unite-container {}
