@@ -72,6 +72,29 @@ class User(models.Model):
         if not self.id:
             self.slug = gen_slug(self.nickname)
         super().save(*args, **kwargs)
+
+class News(models.Model):
+    title = models.CharField(max_length=50)
+    text = models.TextField(max_length=400)
+    slug = models.SlugField(max_length=20, unique=True)
+    tags = models.ManyToManyField('Tag', blank=True, 
+                                    related_name='news')
+
+    def get_absolute_url(self):
+        return reverse('news_detail_url', kwargs={'slug': self.slug})
+
+    def get_update_url(self):
+        return reverse('news_update_url', kwargs={'slug':self.slug})
+
+    def get_delete_url(self):
+        return reverse('news_delete_url', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = gen_slug(self.title)
+        super().save(*args, **kwargs)
+
+
     
 
 

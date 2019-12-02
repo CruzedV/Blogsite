@@ -70,19 +70,19 @@
 {% block news %}
 
 <div class='lower-than-head'>
-
     <div class="card text-center">
+        <!-- for must be placed here-->
             <div class="card-header">
-            News and updates
+            News and announcement
             </div>
         <div class="card-body">
-            <h5 class="card-title">You can read news here!</h5>
+            <h5 class="card-title"></h5>
             <p class="card-text"></p>
-            <a href="https://github.com/CruzedV/Blogsite/commits/master" class="btn btn-dark">Read</a>
+            <a href="{% url 'news_list_url' %}" class="btn btn-dark">Read</a>
         </div>
         <div class="card-footer text-muted">
-
         </div>
+        <!-- -->
     </div>
 
 </div>

@@ -23,6 +23,7 @@ from django.views.generic import View
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 class TagCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     form_model = TagForm
     template = 'blog/tag_create.html'

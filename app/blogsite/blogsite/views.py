@@ -3,9 +3,22 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.shortcuts import render
 
+from django.views.generic import View
+
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+
+from blog.models import News
+
+from blog.utils import ObjectCreateMixin
+from blog.utils import ObjectUpdateMixin
+from blog.utils import ObjectDeleteMixin
+
+from blog.forms import NewsForm
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 def redirect_homepage(request):
     return redirect('homepage_url', permanent=True)
@@ -37,3 +50,24 @@ def register(request):
 
 def accounts_page(request):
     return render(request, 'blogsite/accounts_page.html')
+
+def news_and_announcement(request):
+    news = News.objects.all()
+    return render(request, 'blogsite/news_page.html')
+
+class NewsCreate(LoginRequiredMixin, ObjectCreateMixin, View):
+    form_model = NewsForm
+    template = 'blog/news_create.html'
+    raise_exception = True
+
+class NewsUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
+    model = News
+    form_model = NewsForm
+    template = 'blog/news_update.html'
+    raise_exception = True
+
+class NewsDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
+    model = News
+    template = 'blog/news_delete.html'
+    redirect_url = 'news_list_url'
+    raise_exception = True

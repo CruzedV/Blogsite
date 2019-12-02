@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ 
+    News and announcement - {{ block.super }}
+
+{% endblock %}
+
+{% block important %}
+
+<div class='middle-placed'>
+
+    <h1>News and announcement</h1>
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class='lower-than-head'>
+
+    {% for new in news %}
+
+        {% include 'blogsite/includes/news_card_template.html' %}
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

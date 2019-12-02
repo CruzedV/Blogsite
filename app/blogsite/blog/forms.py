@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from blog.models import Tag
 from blog.models import Post
 from blog.models import User
+from blog.models import News
 
 
 class TagForm(forms.ModelForm):
@@ -25,6 +26,7 @@ class TagForm(forms.ModelForm):
                     'Slug must be unique.'
                     'We have "{}" slug already'.format(new_slug)
                     )
+
         return new_slug
 
 class PostForm(forms.ModelForm):
@@ -37,6 +39,7 @@ class PostForm(forms.ModelForm):
             'body': forms.Textarea(attrs={'class': 'form-control'}),
             'tags': forms.SelectMultiple(attrs={'class': 'form-control'})
         }
+
     def clean_slug(self):
         new_slug = self.cleaned_data['slug'] 
         #or self.cleaned_data.get('slug')
@@ -53,6 +56,7 @@ class UserForm(forms.ModelForm):
             'nickname': forms.TextInput(attrs={'class': 'form-control'}),
             'slug': forms.TextInput(attrs={'class': 'form-control'})
         }
+
     def clean_slug(self):
         new_slug = self.cleaned_data['slug']
 
@@ -66,10 +70,36 @@ class UserForm(forms.ModelForm):
                     )
         return new_slug
 
-    #Если класс Form
-    #def save(self):    
-    #    new_tag = Tag.objects.create(
-    #        title=self.cleaned_data['title'],
-    #        slug=self.cleaned_data['slug']
-    #    )
-    #    return new_tag
+
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model = News
+        fields = ['title', 'text', 'slug', 'tags']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'text': forms.TextInput(attrs={'class': 'form-control'}),
+            'slug': forms.TextInput(attrs={'class': 'form-control'}),
+            'tags': forms.TextInput(attrs={'class': 'form-control'})
+        }
+
+    def clean_slug(self):
+        new_slug = self.cleaned_data['slug']
+
+        if new_slug == 'create':
+            raise ValidationError('Slug may not be "create" ')
+
+        if News.objects.filter(slug__iexact=new_slug).count():
+            raise ValidationError(
+                    'Slug must be unique.'
+                    'We have "{}" slug already'.format(new_slug)
+                    )
+        return new_slug
+
+#Если класс Form
+#def save(self):    
+#    new_tag = Tag.objects.create(
+#        title=self.cleaned_data['title'],
+#        slug=self.cleaned_data['slug']
+#    )
+#    return new_tag
+
