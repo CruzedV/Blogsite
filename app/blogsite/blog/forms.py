@@ -74,20 +74,20 @@ class UserForm(forms.ModelForm):
 class NewsForm(forms.ModelForm):
     class Meta:
         model = News
-        fields = ['title', 'text', 'slug', 'tags']
+        fields = ['title', 'slug', 'text', 'tags']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'text': forms.TextInput(attrs={'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control'}),  
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
-            'tags': forms.TextInput(attrs={'class': 'form-control'})
+            'text': forms.Textarea(attrs={'class': 'form-control'}),
+            'tags': forms.SelectMultiple(attrs={'class': 'form-control'})
         }
 
     def clean_slug(self):
         new_slug = self.cleaned_data['slug']
 
         if new_slug == 'create':
-            raise ValidationError('Slug may not be "create" ')
-
+            raise ValidationError('Slug may not be "create"')
+            
         if News.objects.filter(slug__iexact=new_slug).count():
             raise ValidationError(
                     'Slug must be unique.'

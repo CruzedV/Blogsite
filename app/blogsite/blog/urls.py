@@ -2,8 +2,6 @@ from blog.views import *
 
 from django.urls import path
 
-from django.views.generic import RedirectView
-
 urlpatterns = [
     path('post/create/', PostCreate.as_view(), name='post_create_url'),
     path('post/<str:slug>/', PostDetail.as_view(), name='post_detail_url'),

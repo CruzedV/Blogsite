@@ -103,6 +103,16 @@ hr.splitter {
     transition: 0.2s ease-in-out;
 }
 
+.full-size {
+    min-width: 100%;
+    float: left;
+}
+
+ .full-size-canvas {
+    width: 100%;
+    position: absolute;
+ }
+
 .left-column {
     width: 500px;
     margin-right: 100px; 
