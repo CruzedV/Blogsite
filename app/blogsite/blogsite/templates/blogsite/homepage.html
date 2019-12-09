@@ -1,4 +1,4 @@
-{% extends 'blog/base_blog.html' %}
+{% extends 'blogsite/base_blogsite.html' %}
 {% load static %}
 
 
@@ -31,34 +31,37 @@
 
 {% block content %}
 
-<div class='lower-than-head'>
+<div class='left-column'>
 
-    <h2>Hello</h2>
+    <div class='lower-than-head'>
 
-    <div>
+        <h2>Hello</h2>
 
-        <p>
-            This project was created in September 11 2019.<a href='https://github.com/CruzedV/Blogsite'> Here you can find the GitHub repository</a>
-        </p>
+        <div>
 
-        <p>
-            This is my solo project created using Django, PostgreSQL. Also you can join my team. Contact me here:
-        </p>
+            <p>
+                This project was created in September 11 2019.<a href='https://github.com/CruzedV/Blogsite'> Here you can find the GitHub repository</a>
+            </p>
 
-        <p>
-            <img src='{% static "images/vk_icon.png" %}'><a class='image-url' href='https://vk.com/cruzedv'>VK</a>
-        </p>
+            <p>
+                This is my solo project created using Django, PostgreSQL. Also you can join my team. Contact me here:
+            </p>
 
-        <p>
-            <img src='{% static "images/github_icon.png" %}'><a class='image-url' href='https://github.com/CruzedV'>GitHub</a>
-        </p>
+            <p>
+                <img src='{% static "images/vk_icon.png" %}'><a class='image-url' href='https://vk.com/cruzedv'>VK</a>
+            </p>
 
-        <p>
-            <img src='{% static "images/gmail_icon.png" %}'><a class='image-url' href='https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSDZdGLFDDNQQXrPrqKQdbXJjPqKfQFQnlXhqWNvhJTLdJjfvZDkWqZrTQdlXKfWcdvLJtTk'>Gmail - cruzedvs@gmail.com</a>
-        </p>
+            <p>
+                <img src='{% static "images/github_icon.png" %}'><a class='image-url' href='https://github.com/CruzedV'>GitHub</a>
+            </p>
+
+            <p>
+                <img src='{% static "images/gmail_icon.png" %}'><a class='image-url' href='https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSDZdGLFDDNQQXrPrqKQdbXJjPqKfQFQnlXhqWNvhJTLdJjfvZDkWqZrTQdlXKfWcdvLJtTk'>Gmail - cruzedvs@gmail.com</a>
+            </p>
+
+        </div>
 
     </div>
-
 </div>
 
 {% endblock %}
@@ -69,20 +72,25 @@
 
 {% block news %}
 
-<div class='lower-than-head'>
-    <div class="card text-center">
-        <!-- for must be placed here-->
-            <div class="card-header">
-            News and announcement
+<div class="col-5 right-column">
+
+    <div class='lower-than-head'>
+
+        <div class="card text-center">
+<!-- for must be placed here-->
+                <div class="card-header">
+                News and announcement
+                </div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text"></p>
+                <a href="{% url 'news_list_url' %}" class="btn btn-dark">Read</a>
             </div>
-        <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text"></p>
-            <a href="{% url 'news_list_url' %}" class="btn btn-dark">Read</a>
+            <div class="card-footer text-muted">
+            </div>
+            <!-- -->
         </div>
-        <div class="card-footer text-muted">
-        </div>
-        <!-- -->
+
     </div>
 
 </div>

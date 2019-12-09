@@ -89,7 +89,6 @@
         {% endblock %}
 
     <div  class='container mt-5'>
-        <div class='col-6 left-column'>
             <div class=''>
 
                 {% block content %}
@@ -126,19 +125,17 @@
                     </nav>
                 {% endif %}
             </div>
-        </div>
 
 <!-- News placed here -->
 
-        <div class='col-4 right-column'>
-            <div class=''>
+            <div>
 
                 {% block news %}
 
                 {% endblock %}
 
             </div>
-        </div>
+
     </div>
 
 <!-- Administrator panel -->
@@ -146,9 +143,23 @@
     {% if request.user.is_authenticated and request.user.is_staff%}
 
         <div class='admin-panel align-items-center'>
+
             <a href='/account/admin' class='btn btn-outline-info'>Admin</a>
-            {% block admin-panel %}
-            {% endblock %}
+            <div class="btn-group">
+
+                <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Create
+                </button>
+                <div class="dropdown-menu">
+                    <a class="btn btn-dark" href="{% url 'post_create_url' %}">Post</a>
+                    <a class="btn btn-dark" href="{% url 'tag_create_url' %}">Tag</a>
+                    <a class="btn btn-dark" href="{% url 'user_create_url' %}">User</a>
+                    <a class="btn btn-dark" href="{% url 'news_create_url'%}">News</a>
+                </div>
+            </div>
+            <a href='{{ admin_object.get_update_url}}' class='btn btn-dark edit' style='{% if detail %} display: block; {% endif %}'>Edit</a>
+            <a href='{{ admin_object.get_delete_url}}' class='btn btn-dark delete' style='{% if detail %} display: block; {% endif %}'>Delete</a>
+
         </div>
         
     {% endif %}

@@ -104,13 +104,11 @@ hr.splitter {
 }
 
 .full-size {
-    min-width: 100%;
-    float: left;
+    min-width: 40%;
 }
 
  .full-size-canvas {
     width: 100%;
-    position: absolute;
  }
 
 .left-column {
@@ -133,6 +131,11 @@ hr.splitter {
     height: 100%;
     padding-top: 20px;
     position: absolute;
+}
+
+.news-title {
+    font-size: 25px;
+    text-align: center;
 }
 
 .page-link {
