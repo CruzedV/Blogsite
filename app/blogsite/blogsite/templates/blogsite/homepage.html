@@ -78,15 +78,28 @@
 
         <div class="card text-center">
 <!-- for must be placed here-->
-                <div class="card-header">
-                News and announcement
-                </div>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <a href="{% url 'news_list_url' %}" class="btn btn-dark">Read</a>
+            <div class="card-header">
+
+            <a href='{% url "news_list_url" %}'>News and announcement</a>
+
             </div>
+
+            <div class="card-body">
+
+                <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+
+                    {% for new in short_news %}
+
+                        {% include 'blogsite/includes/short_news_card_template.html' %}
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
             <div class="card-footer text-muted">
+                news appears when admin adds them
             </div>
             <!-- -->
         </div>

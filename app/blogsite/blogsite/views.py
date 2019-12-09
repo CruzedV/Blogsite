@@ -25,10 +25,20 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def redirect_homepage(request):
     return redirect('homepage_url', permanent=True)
 
+def get_short():
+    news = News.objects.all()[:2]
+    return news
+
 def homepage(request):
     is_homepage = True
+    short_news = get_short()
+    context = {
+        'is_homepage': is_homepage,
+        'short_news': short_news
+
+    }
     return render(request, 'blogsite/homepage.html',
-                context={'is_homepage': is_homepage})
+                context=context)
 
 def register(request):
     if request.method =='POST':

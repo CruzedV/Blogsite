@@ -8,9 +8,13 @@
 
 {% block content %}
 
+<div class='col-7'>
+
     <h1>Posts:</h1>
     {% for post in page_object.object_list %}
         {% include 'blog/includes/post_card_template.html' %}
     {% endfor %}
+
+</div>
 
 {% endblock %}

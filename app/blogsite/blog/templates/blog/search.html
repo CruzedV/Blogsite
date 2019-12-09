@@ -8,9 +8,13 @@
 
 {% block content %}
 
-    <h1>Posts:</h1>
+<div class='col-7'>
+
+    <h1>Post with title "{{ search_name }}":</h1>
     {% for post in search %}
         {% include 'blog/includes/post_card_template.html' %}
     {% endfor %}
+    
+</div>
 
 {% endblock %}
