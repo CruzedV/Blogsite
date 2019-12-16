@@ -1,7 +1,5 @@
 {% extends 'blogsite/base_blogsite.html' %}
 {% load static %}
-
-
 <!-- Title of page -->
 
 
@@ -48,15 +46,24 @@
             </p>
 
             <p>
-                <img src='{% static "images/vk_icon.png" %}'><a class='image-url' href='https://vk.com/cruzedv'>VK</a>
+                <img src='{% static "images/vk_icon.png" %}'>
+                <a class='image-url' href='https://vk.com/cruzedv'>
+                    VK
+                </a>
             </p>
 
             <p>
-                <img src='{% static "images/github_icon.png" %}'><a class='image-url' href='https://github.com/CruzedV'>GitHub</a>
+                <img src='{% static "images/github_icon.png" %}'>
+                <a class='image-url' href='https://github.com/CruzedV'>
+                    GitHub
+                </a>
             </p>
 
             <p>
-                <img src='{% static "images/gmail_icon.png" %}'><a class='image-url' href='https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSDZdGLFDDNQQXrPrqKQdbXJjPqKfQFQnlXhqWNvhJTLdJjfvZDkWqZrTQdlXKfWcdvLJtTk'>Gmail - cruzedvs@gmail.com</a>
+                <img src='{% static "images/gmail_icon.png" %}'>
+                <a class='image-url' href='https://mail.google.com/mail/u/1/#inbox?compose=GTvVlcSDZdGLFDDNQQXrPrqKQdbXJjPqKfQFQnlXhqWNvhJTLdJjfvZDkWqZrTQdlXKfWcdvLJtTk'>
+                    Gmail - cruzedvs@gmail.com
+                </a>
             </p>
 
         </div>
@@ -66,18 +73,16 @@
 
 {% endblock %}
 
+{% block news %}
 
 <!-- News block -->
-
-
-{% block news %}
 
 <div class="col-5 right-column">
 
     <div class='lower-than-head'>
 
         <div class="card text-center">
-<!-- for must be placed here-->
+
             <div class="card-header">
 
             <a href='{% url "news_list_url" %}'>News and announcement</a>
