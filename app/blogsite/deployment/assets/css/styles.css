@@ -113,7 +113,7 @@ hr.splitter {
 
 .left-column {
     width: 500px;
-    margin-right: 100px; 
+    margin-right: 100px;
     float: left;
 }
 
@@ -149,7 +149,6 @@ hr.splitter {
 
 .right-column {
     float: left;
-
 }
 
 .unite-container {}
