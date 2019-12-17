@@ -9,11 +9,13 @@
 {% block content %}
 
     <form action='{{ news.get_delete_url }}' method='post'>
+
         {% csrf_token %}
 
         <h3>Are you sure you want to delete <b> "{{ news.title }}"</b> news?</h3>
         <a href='{{ news.get_absolute_url }}'> No!</a>
         <button type='submit' name='button' class='btn btn-danger'>Yes</button>
+        
     </form>
     
 {% endblock %}

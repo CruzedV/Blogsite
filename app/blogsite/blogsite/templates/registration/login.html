@@ -21,6 +21,7 @@
     {% endif %}
 
     <form method='post' actiob='{% url "login" %}'>
+
         {% csrf_token %}
 
         <p>Username</p>
@@ -32,5 +33,6 @@
             <button type='submit' name='button' class='btn btn-dark'>Login</button>
         </p>
         <input type='hidden' name='next' value ='{{ next }}'>
+        
     </from>
 {% endblock %}
