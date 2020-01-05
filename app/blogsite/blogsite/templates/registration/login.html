@@ -1,4 +1,4 @@
-{% extends 'blogsite/base_blogsite.html' %}
+    {% extends 'blogsite/base_blogsite.html' %}
 
 {% block title %}
 
@@ -8,31 +8,44 @@
 
 {% block content %}
 
-    {% if form.errors %}
+<div>
 
-    <p>Wrong</p>
-
-    {% endif %}
-
-    {% if next %}
-
-    <p>Access</p>
-
-    {% endif %}
-
-    <form method='post' actiob='{% url "login" %}'>
+    <form method='post' action='{% url "login" %}'>
 
         {% csrf_token %}
 
-        <p>Username</p>
-        <p>{{ form.username }}</p>
-        <p>Password</p>
-        <p>{{ form.password }}</p>
+            {% for field in form %}
 
-        <p>
-            <button type='submit' name='button' class='btn btn-dark'>Login</button>
-        </p>
+                <div class='form-group'>
+
+                    {% if field.errors %}
+
+                        <div class='alert alert-danger'>
+
+                            {{ field.errors }}
+
+                        </div>
+
+                    {% endif %}
+
+                    {{ field.label }}
+
+                    <div class='form-control-parental'>
+
+                        {{ field }}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        <button type='submit' name='button' class='btn btn-dark'>Login</button>
+
         <input type='hidden' name='next' value ='{{ next }}'>
         
     </from>
+
+</div>
+
 {% endblock %}

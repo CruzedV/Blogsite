@@ -39,6 +39,28 @@ a.page-link:hover {
     background-color: #23272B;
 }
 
+div.dropdown-menu {
+    background: #343A40;
+    border: 1px solid #999;
+    padding: 5px;
+}
+
+div.form-control-parental > input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 h1 {
     text-align: center;
     padding-bottom: 20px;
@@ -57,13 +79,6 @@ li.selected > a.btn {
 
 li.page-item.disabled > a.page-link{
     background-color: #343A40;
-}
-
-
-div.dropdown-menu {
-    background: #343A40;
-    border: 1px solid #999;
-    padding: 5px;
 }
 
 hr.splitter {

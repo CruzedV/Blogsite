@@ -76,7 +76,7 @@ class NewsForm(forms.ModelForm):
         model = News
         fields = ['title', 'slug', 'text', 'tags']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),  
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'text': forms.Textarea(attrs={'class': 'form-control'}),
             'tags': forms.SelectMultiple(attrs={'class': 'form-control'})

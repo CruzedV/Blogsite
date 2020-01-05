@@ -8,20 +8,42 @@
 
 {% block content %}
 
-    <form method='post', action='{% url "register_url" %}'>
+<div>
+
+    <form method='post' action='{% url "register_url" %}'>
         
         {% csrf_token %}
 
-        {% if form.errors %}
+            {% for field in form %}
 
-            <p>Wrong</p>
+                <div class='form-group'>
 
-        {% endif %}
+                    {% if field.errors %}
 
-        {{ form }}
+                        <div class='alert alert-danger'>
 
-        <input type='submit' value='Register'>
+                            {{ field.errors }}
+
+                        </div>
+
+                    {% endif %}
+
+                    {{ field.label }}
+
+                    <div class='form-control-parental'>
+
+                        {{ field }}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        <button type='submit' class='btn btn-dark' value='Register'>Register</button>
 
     </form>
+
+</div>
     
 {% endblock %}

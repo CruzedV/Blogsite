@@ -42,13 +42,14 @@ def homepage(request):
 
 def register(request):
     if request.method =='POST':
+
         form = UserCreationForm(request.POST)
 
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
-            user = authenticate(username=username, 
+            user = authenticate(username='username', 
                                 password='password'
                                 )
             login(request, user)
@@ -56,9 +57,15 @@ def register(request):
             return redirect('/')
     else:
         form = UserCreationForm()
+
     form = UserCreationForm()
     return render(request, 'registration/register.html',
                 context={'form': form})
+
+def logout(request):
+    logout(request)
+    return redirect('/')
+
 
 def accounts_page(request):
     return render(request, 'blogsite/accounts_page.html')
