@@ -2,14 +2,23 @@
 
 {% block title %}
 
-	{{ post.title }} - {{ block.super }}
-	
+    {{ post.title }} - {{ block.super }}
+    
 {% endblock %}
 
 {% block content %}
 
-	<h1 class='mt-5'>{{ post.title }}</h1>
-	<p>{{ post.body }}</p>
+<div class='border-limited-body'>
+
+    <h1 class='mb-5'>{{ post.title }}</h1>
+
+    <div class='body-container'>
+
+        {{ post.body }}
+
+    </div>
+
+</div>
 
 {% endblock %}
 

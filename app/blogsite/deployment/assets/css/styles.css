@@ -64,9 +64,15 @@ div.form-control-parental > input {
 h1 {
     text-align: center;
     padding-bottom: 20px;
-    margin: 5px 0px;
+    margin: 5px;
     border-bottom: 1px solid #17A2B8;
 } 
+
+hr.splitter {
+    opacity: 0.9;
+    background: #17A2B8;
+    box-shadow: 0px 0px 5px #17A2B8;
+}
 
 li.nav-item {
     font-size: 18px;
@@ -79,12 +85,6 @@ li.selected > a.btn {
 
 li.page-item.disabled > a.page-link{
     background-color: #343A40;
-}
-
-hr.splitter {
-    opacity: 0.9;
-    background: #17A2B8;
-    box-shadow: 0px 0px 5px #17A2B8;
 }
 
 #app-name {
@@ -108,6 +108,21 @@ hr.splitter {
 .black-back {
     background-color: #000;
 }
+
+.border-limited-body {
+    padding: 10px;
+    border: 1px solid #17A2B8;
+    border-radius: 10px;
+}
+
+.border-limited-block {
+    border: 1px solid #17A2B8;
+}
+
+.body-container {
+    word-wrap: break-word;
+}
+
 
 .btn-dark {
     border: 1px solid #999;
