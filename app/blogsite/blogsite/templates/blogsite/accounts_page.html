@@ -18,22 +18,86 @@
 
 {% block content %}
 
-    <div class='col-4 lower-than-head'>
+<div class='col-4 left-column' style='margin-left: 100px;'>
 
-        <div class='border-limited-block'>
+    <div class='lower-than-head'>
 
-            <a class='btn btn-dark' href='/account/admin/'>Admin</a>
+        <div class="card card-acc" style="width: 18rem;">
+
+            <div class="card-body">
+
+                <h5 class="card-title">Register page</h5>
+
+                <p class="card-text">This page is for registration on our site</p>
+
+                <a class='btn btn-dark' href='{% url "register_url" %}'>Register</a>
+
+            </div>
 
         </div>
 
-            <a class='btn btn-dark' href='{% url "register_url" %}'>Register</a>
-    
-            <a class='btn btn-dark' href='/account/login'>Log in</a>
+        <div class="card card-acc" style="width: 18rem;">
 
-            <a class='btn btn-dark' href='/account/logout'>Logout</a>
-        
+            <div class="card-body">
+
+                <h5 class="card-title">Log in page</h5>
+
+                <p class="card-text">This page is for logging in on our site</p>
+
+               <a class='btn btn-dark' href='/account/login'>Log in</a>
+
+            </div>
+
+        </div>
+
     </div>
 
+</div>
+
+<div class='col-4 right-column' style='margin-left: 100px;'>
+
+    <div class='lower-than-head'>
+
+        {% if request.user.is_authenticated and request.user.is_staff%}
+
+        <div class="card card-acc" style="width: 18rem;">
+
+            <div class="card-body">
+
+                <h5 class="card-title">Admin page</h5>
+
+                <p class="card-text">This page is only available for admins</p>
+
+                <a class='btn btn-dark' href='/account/admin/'>Admin</a>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+        {% if request.user.is_authenticated %}
+
+        <div class="card card-acc" style="width: 18rem;">
+
+            <div class="card-body">
+
+                <h5 class="card-title">Logout page</h5>
+
+                <p class="card-text">This page if for logout from our site</p>
+
+                <a class='btn btn-dark' href='/account/logout'>Logout</a>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+        
 {% endblock %}
 
 

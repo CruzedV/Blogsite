@@ -116,6 +116,7 @@
 <!-- Paginator placed here -->
 
         {% if is_paginated %}
+
             <nav aria-label="...">
                 <ul class="pagination">
                     <li class="page-item {% if not prev_url %} disabled {% endif %}">
@@ -125,13 +126,17 @@
                     {% for n in page_object.paginator.page_range %}
 
                         {% if page_object.number == n %}
+
                             <li class="page-item active selected">
                                 <a class="btn btn-dark" href="?page={{ n }}">{{ n }}</a>
                             </li>
+
                         {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
+
                             <li class="page-item">
                                     <a class="btn btn-dark" href="?page={{ n }}">{{ n }}</a>
                             </li>
+
                         {% endif %}
 
                     {% endfor %}
@@ -141,7 +146,9 @@
                     </li>
                 </ul>
             </nav>
+
         {% endif %}
+
     </div>
 
 <!-- Administrator panel -->
@@ -161,8 +168,11 @@
                 <div class="dropdown-menu">
 
                     <a class="btn btn-dark" href="{% url 'post_create_url' %}">Post</a>
+                    
                     <a class="btn btn-dark" href="{% url 'tag_create_url' %}">Tag</a>
+
                     <a class="btn btn-dark" href="{% url 'user_create_url' %}">User</a>
+
                     <a class="btn btn-dark" href="{% url 'news_create_url'%}">News</a>
 
                 </div>

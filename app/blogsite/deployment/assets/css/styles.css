@@ -117,6 +117,7 @@ li.page-item.disabled > a.page-link{
 
 .border-limited-block {
     border: 1px solid #17A2B8;
+
 }
 
 .body-container {
@@ -137,6 +138,10 @@ li.page-item.disabled > a.page-link{
     min-width: 40%;
 }
 
+.card {
+    margin-bottom: 20px;
+}
+
  .full-size-canvas {
     width: 100%;
  }
@@ -150,7 +155,6 @@ li.page-item.disabled > a.page-link{
 .lower-than-head {
     padding-top: 120px;
 }
-
 
 .lower-than-other {
     padding-top: 5px;
@@ -181,7 +185,9 @@ li.page-item.disabled > a.page-link{
     float: left;
 }
 
-.unite-container {}
+.card-acc {
+    text-align: center
+}
 
 /*
 Custom css for bttns
