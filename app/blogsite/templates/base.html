@@ -30,7 +30,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+
             <span class="navbar-toggler-icon"></span>
+
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -42,42 +44,61 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'posts_list_url' %}">Posts</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'tags_list_url' %}">Tags</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'users_list_url' %}">Users</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts_page_url' %}">Accounts</a>
                 </li>
+
                 <li>
+
                     <div class="btn-group lower-than-other">
+                        
                         <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Settings
                         </button>
+
                         <div class="dropdown-menu">
 
                             <div id='unite-container'>
+
                                 <form href='url "test_page_url" '>
-                                    <div class="toggle-btn" id="_1st-toggle-btn">   
+
+                                    <div class="toggle-btn" id="_1st-toggle-btn">
+
                                         <form>
                                             <input type="checkbox"> 
                                             <span></span>
                                         </form>
+
                                     </div>
+
                                 </form>
+
                                 <div>
+                                 
                                     <a id='app-name'>Color Theme</a>
+
                                 </div>
+
                             </div>
 
                             <div>
+
                                 <hr class='splitter'>                
                             </div>
 
                         </div>
+
                     </div>
+
                 </li>
 
             </ul>
@@ -101,6 +122,8 @@
 
     </nav>
 
+<!-- Navbar end -->
+
 <!-- Content page -->
 
     {% block important %}
@@ -118,6 +141,7 @@
         {% if is_paginated %}
 
             <nav aria-label="...">
+
                 <ul class="pagination">
                     <li class="page-item {% if not prev_url %} disabled {% endif %}">
                         <a class="page-link btn btn-dark" href="{{ prev_url }}" tabindex="-1">Prev</a>
@@ -145,6 +169,7 @@
                         <a class="page-link btn btn-dark" href="{{ next_url }}" tabindex="-1">Next</a>
                     </li>
                 </ul>
+
             </nav>
 
         {% endif %}

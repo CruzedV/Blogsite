@@ -64,8 +64,7 @@ def register(request):
 
 def logout(request):
     logout(request)
-    return redirect('/')
-
+    return redirect('homepage_url', permanent=True)
 
 def accounts_page(request):
     return render(request, 'blogsite/accounts_page.html')
