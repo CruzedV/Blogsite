@@ -134,12 +134,18 @@ li.page-item.disabled > a.page-link{
     transition: 0.2s ease-in-out;
 }
 
-.full-size {
-    min-width: 40%;
-}
 
 .card {
     margin-bottom: 10rem;
+}
+
+
+.card-acc {
+    text-align: center
+}
+
+.full-size {
+    min-width: 40%;
 }
 
  .full-size-canvas {
@@ -167,7 +173,7 @@ li.page-item.disabled > a.page-link{
     position: absolute;
 }
 
-.news-title {
+.card-c-title {
     font-size: 25px;
     text-align: center;
 }
@@ -183,10 +189,6 @@ li.page-item.disabled > a.page-link{
 
 .right-column {
     float: left;
-}
-
-.card-acc {
-    text-align: center
 }
 
 /*

@@ -7,9 +7,14 @@
 
     <div class="card-body">
 
-        <h5 class="card-title">{{ post.title }}</h5>
+        <h5 class="card-title card-c-title">{{ post.title }}</h5>
         <p class="card-text"> {{ post.body|truncatechars:15 }} </p>
-        <a href="{{ post.get_absolute_url }}" class="btn btn-dark">Read</a>
+
+        <div class='card-acc'>
+
+            <a href="{{ post.get_absolute_url }}" class="btn btn-dark">Read</a>
+
+        </div>
 
     </div>
 

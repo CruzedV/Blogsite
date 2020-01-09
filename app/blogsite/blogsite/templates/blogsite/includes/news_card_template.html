@@ -7,17 +7,22 @@
 
     <div class="card-body">
 
-        <h5 class="card-title news-title">{{ new.title }}</h5>
+        <h5 class="card-title card-c-title">{{ new.title }}</h5>
         <p class="card-text">{{ new.text|truncatewords:30 }}</p>
-        <a href="{{ new.get_absolute_url }}" class="btn btn-dark">Read</a>
 
+        <div class='card-acc'>
+
+            <a href="{{ new.get_absolute_url }}" class="btn btn-dark">Read</a>
+
+        </div>
+        
     </div>
 
     <div class="card-footer text-muted">
 
         Tags:
         {% for tag in news.tags.all %}
-            <a class='color-turqiouse ' href='{{ tag.get_absolute_url }}'>{{tag.title }}</a>
+            <a class='color-turqiouse ' href='{{ tag.get_absolute_url }}'>{{ tag.title }}</a>
         {% endfor %}
 
     </div>

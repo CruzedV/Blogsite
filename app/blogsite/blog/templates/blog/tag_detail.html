@@ -7,10 +7,13 @@
 {% endblock %}
 
 {% block content %}
+<div class="col-7">
 
     <h1 class='mb-5'>Post with "{{ tag.title|title }}" tag</h1>
     {% for post in tag.posts.all %}
         {% include 'blog/includes/post_card_template.html' %}
     {% endfor %}
+
+</div>
 
 {% endblock %}
