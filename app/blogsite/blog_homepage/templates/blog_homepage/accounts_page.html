@@ -1,4 +1,4 @@
-{% extends 'blogsite/base_blogsite.html' %}
+{% extends 'blog_homepage/base_blog_homepage.html' %}
 
 {% block title %}
 
@@ -44,7 +44,7 @@
 
                 <p class="card-text">This page is for logging in on our site</p>
 
-               <a class='btn btn-dark' href='/account/login'>Log in</a>
+               <a class='btn btn-dark' href='/general/account/login'>Log in</a>
 
             </div>
 
@@ -86,7 +86,7 @@
 
                 <p class="card-text">This page if for logout from our site</p>
 
-                <a class='btn btn-dark' href='/account/logout'>Logout</a>
+                <a class='btn btn-dark' href='{% url "logout_url" %}'>Logout</a>
 
             </div>
 

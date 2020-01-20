@@ -1,4 +1,4 @@
-{% extends 'blogsite/base_blogsite.html' %}
+{% extends 'blog_homepage/base_blog_homepage.html' %}
 
 {% block title %}
  
@@ -22,7 +22,7 @@
 
     {% for new in news %}
 
-        {% include 'blogsite/includes/news_card_template.html' %}
+        {% include 'blog_homepage/includes/news_card_template.html' %}
 
     {% endfor %}
 

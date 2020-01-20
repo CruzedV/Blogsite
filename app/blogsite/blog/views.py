@@ -10,10 +10,10 @@ from blog.models import Tag
 from blog.models import Post
 from blog.models import User
 
-from blog.utils import ObjectDetailMixin
-from blog.utils import ObjectCreateMixin
-from blog.utils import ObjectUpdateMixin
-from blog.utils import ObjectDeleteMixin
+from blogsite.utils import ObjectDetailMixin
+from blogsite.utils import ObjectCreateMixin
+from blogsite.utils import ObjectUpdateMixin
+from blogsite.utils import ObjectDeleteMixin
 
 from blog.forms import TagForm
 from blog.forms import PostForm

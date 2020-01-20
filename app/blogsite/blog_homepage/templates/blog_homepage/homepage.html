@@ -1,4 +1,4 @@
-{% extends 'blogsite/base_blogsite.html' %}
+{% extends 'blog_homepage/base_blog_homepage.html' %}
 {% load static %}
 
 <!-- Title of page -->
@@ -89,7 +89,7 @@
 
                     {% for new in short_news %}
 
-                        {% include 'blogsite/includes/short_news_card_template.html' %}
+                        {% include 'blog_homepage/includes/short_news_card_template.html' %}
 
                     {% endfor %}
 

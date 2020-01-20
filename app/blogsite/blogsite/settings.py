@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogsite',
-    'blog'
+    'blog',
+    'blog_homepage'
 
 ]
 
@@ -126,8 +127,10 @@ USE_TZ = True
 
 STATIC_URL = '/deployment/assets/'
 
-STATICFILES_DIRS = [ 
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'deployment/assets')
 ]
 
 LOGIN_REDIRECT_URL = '/'
+
+#Coder: Vlad
