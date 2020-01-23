@@ -1,0 +1,22 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block content %}
+
+    <h2>Upload</h2>
+
+    <form method='POST' enctype="multipart/form-data">
+
+        {% csrf_token %}
+        <input type='file' name='document'>
+        <button class='btn btn-dark' type='submit'>Upload file</button>
+        
+    </form>
+
+    {% if url %}
+
+    	Uploaded file:
+    	<a href='{{ url }}'>{{ url }}</a>
+
+    {% endif %}
+
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator
+from django.core.files.storage import FileSystemStorage
 
 from django.shortcuts import redirect
 from django.shortcuts import render
@@ -145,3 +146,15 @@ def paginator_for_obj(request, obj):
         next_url = ''
     pag_list = (next_url, prev_url, is_paginated, page)
     return pag_list
+
+def upload_image(request):
+    if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        #Выводит имя файла и его размер 
+        #print(uploaded_file.name, uploaded_file.size)
+        fs = FileSystemStorage()
+        name = fs.save(uploaded_file.name, uploaded_file)
+    context = {
+            'url': fs.url(name)
+            }
+    return render(request, 'blog/upload.html', context)

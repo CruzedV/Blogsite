@@ -2,6 +2,9 @@ from blog.views import *
 
 from django.urls import path
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('post/create/', PostCreate.as_view(), name='post_create_url'),
     path('post/<str:slug>/', PostDetail.as_view(), name='post_detail_url'),
@@ -21,5 +24,9 @@ urlpatterns = [
     path('user/<str:slug>/delete', UserDelete.as_view(), name='user_delete_url'),
     path('users/', users_list, name='users_list_url'),
 
+    path('upload/', upload_image, name='upload_page_url'),
     path('search/', search_list, name='search_page_url')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
