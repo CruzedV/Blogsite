@@ -2,7 +2,6 @@ from blog.views import *
 
 from django.urls import path
 
-from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
@@ -27,6 +26,3 @@ urlpatterns = [
     path('upload/', upload_image, name='upload_page_url'),
     path('search/', search_list, name='search_page_url')
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

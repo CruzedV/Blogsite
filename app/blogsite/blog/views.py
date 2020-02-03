@@ -154,7 +154,6 @@ def upload_image(request):
         #print(uploaded_file.name, uploaded_file.size)
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)
-    context = {
-            'url': fs.url(name)
-            }
-    return render(request, 'blog/upload.html', context)
+        return render(request, 'blog/upload.html',
+                        context={'url': fs.url(name)})
+    return render(request, 'blog/upload.html')
