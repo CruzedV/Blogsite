@@ -7,15 +7,28 @@
     <form method='POST' enctype="multipart/form-data">
 
         {% csrf_token %}
+        
         <input type='file' name='document'>
-        <button class='btn btn-dark' type='submit'>Upload file</button>
+        <button class='btn btn-dark' type='submit'>
+            Upload file
+        </button>
         
     </form>
 
     {% if url %}
 
-    	Uploaded file:
-    	<a href='{{ url }}'>{{ url }}</a>
+        <div>
+
+            Uploaded file:
+    	    <a href='{{ url }}'>{{ url }}</a>
+
+            <div>
+
+                <img src='{{ img }}'>
+
+            </div>
+
+        </div>
 
     {% endif %}
 

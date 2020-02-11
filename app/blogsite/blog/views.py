@@ -1,3 +1,5 @@
+import os
+
 from django.core.paginator import Paginator
 from django.core.files.storage import FileSystemStorage
 
@@ -6,6 +8,12 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
 from django.urls import reverse
+
+from django.http import HttpResponse
+
+from django.views.generic import View
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from blog.models import Tag
 from blog.models import Post
@@ -19,10 +27,6 @@ from blogsite.utils import ObjectDeleteMixin
 from blog.forms import TagForm
 from blog.forms import PostForm
 from blog.forms import UserForm
-
-from django.views.generic import View
-
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class TagCreate(LoginRequiredMixin, ObjectCreateMixin, View):
@@ -50,6 +54,18 @@ class PostCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     form_model = PostForm
     template = 'blog/post_create.html'
     raise_exception = True
+
+# def postcreate(request):
+#     if request.method == 'POST':
+#             form = PostForm(request.POST, request.FILES)
+#             if form.is_valid():
+#                 form.save
+#                 return redirect('posts_list_url')
+#     else:
+#         form = PostForm
+
+#     return render(request, 'blog/post_create.html', 
+#                 context={'form': form})
 
 class PostDetail(ObjectDetailMixin, View):
     model = Post
@@ -109,7 +125,7 @@ def posts_list(request):
     prev_url = paginated_list[1]
     is_paginated = paginated_list[2]
     page = paginated_list[3]
-    context = {
+    context = { 
             'next_url': next_url,
             'prev_url': prev_url,
             'is_paginated': is_paginated,
@@ -154,6 +170,11 @@ def upload_image(request):
         #print(uploaded_file.name, uploaded_file.size)
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)
+        img = os.path.join(fs.base_url, uploaded_file.name)
+
         return render(request, 'blog/upload.html',
-                        context={'url': fs.url(name)})
+                        context={
+                                'url': fs.url(name),
+                                'img': img
+                        })
     return render(request, 'blog/upload.html')

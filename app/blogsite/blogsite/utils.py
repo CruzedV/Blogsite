@@ -3,11 +3,14 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from blog.models import *
 
+
 class ObjectDetailMixin:
     model = None
     template = None
+
     def get(self, request, slug):
         obj = get_object_or_404(self.model, slug__iexact=slug)
+
         return render(request, self.template, 
             context={self.model.__name__.lower(): obj, 'admin_object': obj, 'detail': True})
 
@@ -48,6 +51,7 @@ class ObjectUpdateMixin:
         if bound_form.is_valid():
             new_obj = bound_form.save()
             return redirect(new_obj)
+
         return render(request, self.template, 
                 context={'form': bound_form, self.model.__name__.lower(): obj})
 
@@ -58,6 +62,7 @@ class ObjectDeleteMixin:
     
     def get(self, request, slug):
         obj = self.model.objects.get(slug__iexact=slug)
+
         return render(request, self.template, 
             #context можно явно не указывать
                     context={self.model.__name__.lower(): obj})
@@ -65,6 +70,7 @@ class ObjectDeleteMixin:
     def post(self, request, slug):
         obj = self.model.objects.get(slug__iexact=slug)    
         obj.delete()
+
         return redirect(reverse(self.redirect_url))
 
 
