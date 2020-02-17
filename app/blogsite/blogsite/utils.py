@@ -12,7 +12,7 @@ class ObjectDetailMixin:
         obj = get_object_or_404(self.model, slug__iexact=slug)
 
         return render(request, self.template, 
-            context={self.model.__name__.lower(): obj, 'admin_object': obj, 'detail': True})
+                context={self.model.__name__.lower(): obj, 'admin_object': obj, 'detail': True})
 
 
 class ObjectCreateMixin:
@@ -22,7 +22,7 @@ class ObjectCreateMixin:
     def get(self, request):
         form = self.form_model()
         return render(request, self.template,
-                context={'form': form})
+                    context={'form': form})
         
     def post(self, request):
         bound_form = self.form_model(request.POST)
@@ -31,7 +31,7 @@ class ObjectCreateMixin:
             return redirect(new_obj)
 
         return render(request, self.template,
-                context={'form': bound_form})
+                    context={'form': bound_form})
 
 class ObjectUpdateMixin:
     model = None
@@ -42,7 +42,7 @@ class ObjectUpdateMixin:
         obj = self.model.objects.get(slug__iexact=slug)
         bound_form = self.form_model(instance=obj)
         return render(request, self.template,
-                context={'form': bound_form, self.model.__name__.lower(): obj})
+                    context={'form': bound_form, self.model.__name__.lower(): obj})
 
     def post(self, request, slug):
         obj = self.model.objects.get(slug__iexact=slug)
@@ -53,7 +53,7 @@ class ObjectUpdateMixin:
             return redirect(new_obj)
 
         return render(request, self.template, 
-                context={'form': bound_form, self.model.__name__.lower(): obj})
+                    context={'form': bound_form, self.model.__name__.lower(): obj})
 
 class ObjectDeleteMixin:
     model = None
@@ -64,7 +64,6 @@ class ObjectDeleteMixin:
         obj = self.model.objects.get(slug__iexact=slug)
 
         return render(request, self.template, 
-            #context можно явно не указывать
                     context={self.model.__name__.lower(): obj})
 
     def post(self, request, slug):

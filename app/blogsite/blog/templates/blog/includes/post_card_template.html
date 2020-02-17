@@ -8,11 +8,22 @@
     <div class="card-body">
 
         <h5 class="card-title card-c-title">{{ post.title }}</h5>
+
+        {% if post.image %}
+
+        <div>
+
+            <img src='/media/{{ post.image }}' class='preview'>
+
+        </div>
+
+        {% endif %}
+
         <p class="card-text"> {{ post.body|truncatechars:15 }} </p>
 
         <div class='card-acc'>
 
-            <a href="{{ post.get_absolute_url }}" class="btn btn-dark">Read</a>
+            <a href="{{ post.get_absolute_url }}" class="btn btn-dark" style='float:left;'>Read</a>
 
         </div>
 

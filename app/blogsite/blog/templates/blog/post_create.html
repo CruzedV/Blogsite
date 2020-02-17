@@ -26,11 +26,11 @@
 
                 {% endif %}
 
-                {% if field == 'image' %}
+                {{ field.label }}
 
-                    {{ field.label }}
+                {{ field }}
 
-                    {{ field }}
+                <!-- {% if field.label == 'image' %}
 
                     <button class='btn btn-dark' type='submit'>
 
@@ -38,14 +38,8 @@
 
                     </button>
 
-                {% else %}
-
-                    {{ field.label }}
-
-                    {{ field }}
-
                 {% endif %}
-
+            -->
             </div>
 
         {% endfor %}

@@ -55,6 +55,19 @@ class PostCreate(LoginRequiredMixin, ObjectCreateMixin, View):
     template = 'blog/post_create.html'
     raise_exception = True
 
+    def post(self, request):
+        if request.method == 'POST':
+            bound_form = self.form_model(request.POST, request.FILES)
+            if bound_form.is_valid():
+                new_obj = bound_form.save()
+                return redirect(new_obj)
+                img = image_preview()
+
+            return render(request, self.template,
+                        context={'form': bound_form})
+
+
+
 # def postcreate(request):
 #     if request.method == 'POST':
 #             form = PostForm(request.POST, request.FILES)
@@ -76,6 +89,16 @@ class PostUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
     form_model = PostForm
     template = 'blog/post_update.html'
     raise_exception = True
+
+    def post(self, request, slug):
+        obj = self.model.objects.get(slug__iexact=slug)
+        bound_form = self.form_model(request.POST, request.FILES, instance=obj)
+        if bound_form.is_valid():
+            new_obj = bound_form.save()
+            return redirect(new_obj)
+
+        return render(request, self.template, 
+                    context={'form': bound_form, self.model.__name__.lower(): obj})
 
 class PostDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
     model = Post
@@ -166,8 +189,6 @@ def paginator_for_obj(request, obj):
 def upload_image(request):
     if request.method == 'POST':
         uploaded_file = request.FILES['document']
-        #Выводит имя файла и его размер 
-        #print(uploaded_file.name, uploaded_file.size)
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)
         img = os.path.join(fs.base_url, uploaded_file.name)
