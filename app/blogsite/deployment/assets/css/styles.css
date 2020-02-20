@@ -152,6 +152,11 @@ li.page-item.disabled > a.page-link{
     width: 100%;
  }
 
+ .img-container {
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.125);
+ }
+
 .left-column {
     width: 500px;
     margin-right: 100px;
@@ -188,7 +193,7 @@ li.page-item.disabled > a.page-link{
 }
 
 .preview {
-    max-height: 150px;
+    max-height: 120px;
     max-width: 150px;
     float: right;
 }

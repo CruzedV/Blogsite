@@ -7,19 +7,19 @@
 
     <div class="card-body">
 
-        <h5 class="card-title card-c-title">{{ post.title }}</h5>
-
         {% if post.image %}
 
-        <div>
+            <div class='img-container' style='float: right;'>
 
-            <img src='/media/{{ post.image }}' class='preview'>
+                <img src='/media/{{ post.image }}' class='preview'>
 
-        </div>
+            </div>
 
         {% endif %}
 
-        <p class="card-text"> {{ post.body|truncatechars:15 }} </p>
+        <h5 class="card-title card-c-title">{{ post.title }}</h5>
+
+        <p class="card-text"> {{ post.body|truncatechars:30 }} </p>
 
         <div class='card-acc'>
 
