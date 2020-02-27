@@ -12,11 +12,15 @@
 
     <h1 class='mb-5'>{{ post.title }}</h1>
 
+    {% if post.image %}
+
     <div class='img-container'>
         
         <img src='/media/{{ post.image }}' class='post-image'>
 
     </div>
+
+    {% endif %}
 
     <div class='body-container'>
 

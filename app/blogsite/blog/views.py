@@ -66,20 +66,6 @@ class PostCreate(LoginRequiredMixin, ObjectCreateMixin, View):
             return render(request, self.template,
                         context={'form': bound_form})
 
-
-
-# def postcreate(request):
-#     if request.method == 'POST':
-#             form = PostForm(request.POST, request.FILES)
-#             if form.is_valid():
-#                 form.save
-#                 return redirect('posts_list_url')
-#     else:
-#         form = PostForm
-
-#     return render(request, 'blog/post_create.html', 
-#                 context={'form': form})
-
 class PostDetail(ObjectDetailMixin, View):
     model = Post
     template = 'blog/post_detail.html'

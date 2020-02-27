@@ -74,6 +74,13 @@ hr.splitter {
     box-shadow: 0px 0px 5px #17A2B8;
 }
 
+input#image-clear_id {
+    width: 10px;
+    height: 10px;
+    position: relative;
+    opacity: 1;
+}
+
 li.nav-item {
     font-size: 18px;
     padding-bottom: 4px;
@@ -124,6 +131,10 @@ li.page-item.disabled > a.page-link{
     word-wrap: break-word;
 }
 
+.btn-small {
+    display: block;
+    float: right;
+}
 
 .btn-dark {
     border: 1px solid #999;
