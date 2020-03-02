@@ -3,6 +3,13 @@ First Django Project
 
 Documentation
 
+The site include the following packages:
+Django==2.2.6
+Pillow==7.0.0
+psycopg2==2.8.3
+pytz==2019.3
+sqlparse==0.3.0
+
 Relationships are distributed the next way:
 
 Blogsite distributes a utils for two apps:
