@@ -30,6 +30,10 @@ class Post(models.Model):
             self.slug = gen_slug(self.title)
         super().save(*args, **kwargs)
 
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        super().delete(*args, **kwargs)
+
     def __str__(self):
         return self.title
 
@@ -73,28 +77,3 @@ class User(models.Model):
         if not self.id:
             self.slug = gen_slug(self.nickname)
         super().save(*args, **kwargs)
-
-# class News(models.Model):
-#     title = models.CharField(max_length=50, db_index=True)
-#     slug = models.SlugField(max_length=30, unique=True)
-#     text = models.TextField(max_length=400, db_index=True)
-#     tags = models.ManyToManyField('Tag', blank=True, 
-#                                     related_name='news')
-#     date_pub = models.DateTimeField(auto_now_add=True)
-
-#     def get_absolute_url(self):
-#         return reverse('news_detail_url', kwargs={'slug':self.slug})
-
-#     def get_update_url(self):
-#         return reverse('news_update_url', kwargs={'slug':self.slug})
-
-#     def get_delete_url(self):
-#         return reverse('news_delete_url', kwargs={'slug': self.slug})
-
-#     def save(self, *args, **kwargs):
-#         if not self.id:
-#             self.slug = gen_slug(self.title)
-#         super().save(*args, **kwargs)
-
-#     class Meta:
-#         ordering = ['-date_pub']

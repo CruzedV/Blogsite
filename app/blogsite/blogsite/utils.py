@@ -14,7 +14,6 @@ class ObjectDetailMixin:
         return render(request, self.template, 
                 context={self.model.__name__.lower(): obj, 'admin_object': obj, 'detail': True})
 
-
 class ObjectCreateMixin:
     form_model = None
     template = None
@@ -46,7 +45,7 @@ class ObjectUpdateMixin:
 
     def post(self, request, slug):
         obj = self.model.objects.get(slug__iexact=slug)
-        bound_form = self.form_model(request.POST, instance=obj)
+        bound_form = self.form_model(request.POST, request.FILES, instance=obj)
 
         if bound_form.is_valid():
             new_obj = bound_form.save()
