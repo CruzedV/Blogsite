@@ -49,7 +49,7 @@ class ObjectUpdateMixin:
 
         if bound_form.is_valid():
             new_obj = bound_form.save()
-            return redirect(new_obj)
+            return redirect(new_obj) 
 
         return render(request, self.template, 
                     context={'form': bound_form, self.model.__name__.lower(): obj})
@@ -70,7 +70,3 @@ class ObjectDeleteMixin:
         obj.delete()
 
         return redirect(reverse(self.redirect_url))
-
-
-
-
