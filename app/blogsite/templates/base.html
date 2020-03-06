@@ -178,17 +178,17 @@
 
 <!-- Administrator panel -->
 
-    {% if request.user.is_authenticated and request.user.is_staff%}
+    {% if request.user.is_authenticated and request.user.is_staff %}
 
         <div class='admin-panel align-items-center'>
 
-            <div class="dropdown btn-small">
+            <div class="dropdown btn-small dropup">
 
                 <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ...
                 </button>
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu dmdark" aria-labelledby="dropdownMenuButton">
 
                     <button class="btn btn-dark" type='button' action=''>Hide panel</a>
 
@@ -198,13 +198,13 @@
 
             <a href='/account/admin' class='btn btn-outline-info'>Admin</a>
 
-            <div class="btn-group">
+            <div class="btn-group dropup">
 
                 <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Create
                 </button>
 
-                <div class="dropdown-menu">
+                <div class="dropdown-menu dmdark">
 
                     <a class="btn btn-dark" href="{% url 'post_create_url' %}">Post</a>
                     

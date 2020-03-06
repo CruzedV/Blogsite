@@ -40,9 +40,12 @@ a.page-link:hover {
 }
 
 div.dropdown-menu {
-    background: #343A40;
     border: 1px solid #999;
     padding: 5px;
+}
+
+div.dmdark {
+    background: #343A40;
 }
 
 div.form-control-parental > input {
@@ -209,11 +212,16 @@ li.page-item.disabled > a.page-link{
     float: right;
 }
 
+.post-data {
+    text-align: left;
+    display: inline-block;
+    vertical-align: center;
+}
+
 .post-image {
     max-width: 1000px;
     display: block;
     margin: 0 auto;
-
 }
 
 .right-column {

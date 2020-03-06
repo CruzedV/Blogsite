@@ -2,7 +2,35 @@
 
     <div class="card-header">
 
-        {{ post.date_pub }}
+        <div class='post-data'>
+
+            {{ post.date_pub }}
+
+        </div>
+
+<!-- action with post -->
+    
+    {% if request.user.is_authenticated and request.user.is_staff %}
+
+        <div class='dropdown btn-small dropright'>
+
+            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ...
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                    <a class="btn" type='button' action=''>Edit</a>
+                    <a class="btn" type='button' action=''>Delete</a>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+
+<!-- action with post end -->
+
     </div>
 
     <div class="card-body">
