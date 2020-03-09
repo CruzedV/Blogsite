@@ -20,8 +20,8 @@
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                    <a class="btn" type='button' action=''>Edit</a>
-                    <a class="btn" type='button' action=''>Delete</a>
+                    <a href='{{ post.get_update_url}}' class='btn btn-dark edit' style='display: block;'>Edit</a>
+                    <a href='{{ post.get_delete_url}}' class='btn btn-dark delete' style=' display: block;'>Delete</a>
 
             </div>
 
