@@ -65,7 +65,7 @@
                         Settings
                         </button>
 
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu dmdark" style="text-align: left;">
 
                             <div id='unite-container'>
 
@@ -190,7 +190,7 @@
 
                 <div class="dropdown-menu dmdark" aria-labelledby="dropdownMenuButton">
 
-                    <button class="btn btn-dark" type='button' action=''>Hide panel</a>
+                    <a class="btn btn-dark">Hide panel</a>
 
                 </div>
 
@@ -200,11 +200,11 @@
 
             <div class="btn-group dropup">
 
-                <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-dark dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Create
                 </button>
 
-                <div class="dropdown-menu dmdark">
+                <div class="dropdown-menu dmdark" aria-labelledby="dropdownMenuButton">
 
                     <a class="btn btn-dark" href="{% url 'post_create_url' %}">Post</a>
                     
@@ -224,6 +224,8 @@
         </div>
         
     {% endif %}
+
+<!-- Administrator panel end -->
 
 
     </body>

@@ -64,16 +64,21 @@ class PostCreate(LoginRequiredMixin, ObjectCreateMixin, View):
         return render(request, self.template,
                     context={'form': bound_form})
 
-class PostDetail(ObjectDetailMixin, View):
+class PostUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
     model = Post
     form_model = PostForm
-    template = 'blog/post_detail.html'
+    template = 'blog/post_update.html'
+    raise_exception = True
 
     def post(self, request, slug):
         obj = self.model.objects.get(slug__iexact=slug)
         bound_form = self.form_model(request.POST, request.FILES, instance=obj)
         if not obj.image:
-            image.delete()
+            obj.image.delete()
+        if obj.image:
+            obj.image.save(obj.image.name, obj.image)
+        else:
+            print(obj.image.name, obj.image.size)
 
         if bound_form.is_valid():
             new_obj = bound_form.save()
@@ -83,12 +88,10 @@ class PostDetail(ObjectDetailMixin, View):
                     context={'form': bound_form, 
                             self.model.__name__.lower(): obj})
 
-
-class PostUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
+class PostDetail(ObjectDetailMixin, View):
     model = Post
     form_model = PostForm
-    template = 'blog/post_update.html'
-    raise_exception = True
+    template = 'blog/post_detail.html'
 
 class PostDelete(LoginRequiredMixin, ObjectDeleteMixin, View):
     model = Post

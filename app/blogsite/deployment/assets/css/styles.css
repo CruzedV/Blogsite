@@ -46,6 +46,7 @@ div.dropdown-menu {
 
 div.dmdark {
     background: #343A40;
+    text-align: center;
 }
 
 div.form-control-parental > input {
@@ -141,6 +142,7 @@ li.page-item.disabled > a.page-link{
 
 .btn-dark {
     border: 1px solid #999;
+    display: block;
 }
 
 .btn-dark:hover{

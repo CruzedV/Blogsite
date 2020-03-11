@@ -12,16 +12,16 @@
     
     {% if request.user.is_authenticated and request.user.is_staff %}
 
-        <div class='dropdown btn-small dropright'>
+        <div class='dropdown btn-group dropright btn-small'>
 
-            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ...
             </button>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu dmdark" aria-labelledby="dropdownMenuButton">
 
-                    <a href='{{ post.get_update_url}}' class='btn btn-dark edit' style='display: block;'>Edit</a>
-                    <a href='{{ post.get_delete_url}}' class='btn btn-dark delete' style=' display: block;'>Delete</a>
+                    <a class='btn btn-dark' href='{{ post.get_update_url}}'>Edit</a>
+                    <a class='btn btn-dark' href='{{ post.get_delete_url}}'>Delete</a>
 
             </div>
 
