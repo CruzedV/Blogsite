@@ -19,7 +19,7 @@ class ObjectCreateMixin:
     template = None
 
     def get(self, request):
-        form = self.form_model()
+        form = self.form_model
         return render(request, self.template,
                     context={'form': form})
         

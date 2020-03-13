@@ -72,13 +72,11 @@ class PostUpdate(LoginRequiredMixin, ObjectUpdateMixin, View):
 
     def post(self, request, slug):
         obj = self.model.objects.get(slug__iexact=slug)
-        bound_form = self.form_model(request.POST, request.FILES, instance=obj)
-        if not obj.image:
-            obj.image.delete()
-        if obj.image:
-            obj.image.save(obj.image.name, obj.image)
-        else:
-            print(obj.image.name, obj.image.size)
+        bound_form = self.form_model(request.POST, request.FILES)
+        # if not obj.image:
+        #     obj.image.delete()
+        # if obj.image:
+        #     obj.image.save(obj.image.name, obj.image)
 
         if bound_form.is_valid():
             new_obj = bound_form.save()
