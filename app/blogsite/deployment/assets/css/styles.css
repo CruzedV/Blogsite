@@ -194,6 +194,11 @@ li.page-item.disabled > a.page-link{
     position: absolute;
 }
 
+.news-btn {
+    display: inline;
+}
+
+
 .card-c-title {
     font-size: 25px;
     text-align: center;

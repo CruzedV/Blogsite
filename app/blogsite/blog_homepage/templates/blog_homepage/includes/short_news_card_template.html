@@ -3,11 +3,18 @@
     <div class="card-body">
 
         <h5 class="card-title">{{ new.title}}</h5>
+
         <h6 class="card-subtitle mb-2 text-muted">{{ new.date_pub }}</h6>
+
         <p class="card-text"> {{ new.text|truncatechars:30 }}</p>
-       <a href="{{ new.get_absolute_url }}" class="btn btn-dark">
-           Read
-       </a>
+
+        <div class='card-acc'>
+
+            <a href="{{ new.get_absolute_url }}" class="btn btn-dark" style='display: inline;'>
+            Read
+            </a>
+
+        </div>
 
   </div>
   
