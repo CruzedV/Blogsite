@@ -3,6 +3,26 @@
     <div class="card-header">
 
         {{ new.date_pub }}
+
+        {% if request.user.is_authenticated and request.user.is_staff %}
+
+            <div class='dropdown btn-group dropright btn-small'>
+
+                <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ...
+                </button>
+
+                <div class="dropdown-menu dmdark" aria-labelledby="dropdownMenuButton">
+
+                    <a class='btn btn-dark' href='{{ new.get_update_url}}'>Edit</a>
+                    <a class='btn btn-dark' href='{{ new.get_delete_url}}'>Delete</a>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
     </div>
 
     <div class="card-body">

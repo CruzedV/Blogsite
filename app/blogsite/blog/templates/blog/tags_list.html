@@ -12,7 +12,38 @@
 
     <h1>Tags:</h1>
     {% for tag in tags %}
-        <h3><a href='{{ tag.get_absolute_url }}'>{{ tag.title }}</a></h3>
+
+    	<div class="card mb-5">
+
+    		<div class="card-header">
+
+        		<a class='color-turqiouse' href='{{ tag.get_absolute_url }}'>
+            	{{ tag.title }}
+		        </a>
+
+		        {% if request.user.is_authenticated and request.user.is_staff %}
+
+        			<div class='dropdown btn-group dropright btn-small'>
+
+            			<button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                		...
+            			</button>
+
+                		<div class="dropdown-menu dmdark" aria-labelledby="dropdownMenuButton">
+
+                    		<a class='btn btn-dark' href='{{ tag.get_update_url}}'>Edit</a>
+                    		<a class='btn btn-dark' href='{{ tag.get_delete_url}}'>Delete</a>
+
+            			</div>
+
+       		 		</div>
+
+    			{% endif %}
+
+    		</div>
+
+		</div>
+
     {% endfor %}
 
 </div>
