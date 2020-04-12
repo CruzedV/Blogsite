@@ -1,4 +1,5 @@
-/* Styles for Ousite */
+ /*Styles for Ousite */
+ /*I used Bootstrap(https://getbootstrap.com/docs/4.4/about/license/) for my site.*/
 
 body {
     margin: 0px;
@@ -222,7 +223,6 @@ li.page-item.disabled > a.page-link{
 .post-data {
     text-align: left;
     display: inline-block;
-    vertical-align: center;
 }
 
 .post-image {
@@ -332,4 +332,3 @@ input[type="checkbox"] {
 #23272B-Сизый темнее
 
 
-*/
