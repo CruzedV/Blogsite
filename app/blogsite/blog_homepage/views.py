@@ -5,6 +5,7 @@ from django.views.generic import View
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from blogsite.utils import ObjectDetailMixin
 from blogsite.utils import ObjectCreateMixin
@@ -14,7 +15,6 @@ from blogsite.utils import ObjectDeleteMixin
 from blog_homepage.models import News
 from blog_homepage.forms import NewsForm
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 def get_short():
     news = News.objects.all()[:2]
